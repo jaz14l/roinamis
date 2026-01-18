@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import roinamisLogo from "@/assets/roinamis-logo-transparent.png";
+import roinamisLogo from "@/assets/roinamis-logo-dark.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -47,11 +47,14 @@ const SignUpForm = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mb-14 relative"
             >
-              <img
+              <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto rounded-lg"
+                animate={{ 
+                  filter: ['drop-shadow(0 0 20px rgba(100,85,70,0.5))', 'drop-shadow(0 0 40px rgba(100,85,70,0.7))', 'drop-shadow(0 0 20px rgba(100,85,70,0.5))']
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
 
@@ -160,11 +163,14 @@ const SignUpForm = () => {
               transition={{ duration: 0.8 }}
               className="mb-14 relative"
             >
-              <img
+              <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto rounded-lg"
+                animate={{ 
+                  filter: ['drop-shadow(0 0 20px rgba(100,85,70,0.5))', 'drop-shadow(0 0 40px rgba(100,85,70,0.7))', 'drop-shadow(0 0 20px rgba(100,85,70,0.5))']
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
 
