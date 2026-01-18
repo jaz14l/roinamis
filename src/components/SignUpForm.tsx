@@ -50,7 +50,7 @@ const SignUpForm = () => {
               <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-36 md:h-48 lg:h-56 w-auto mx-auto"
+                className="h-44 md:h-56 lg:h-64 w-auto mx-auto"
                 style={{ mixBlendMode: 'multiply' }}
                 animate={{ 
                   filter: [
@@ -171,7 +171,7 @@ const SignUpForm = () => {
               <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-36 md:h-48 lg:h-56 w-auto mx-auto"
+                className="h-44 md:h-56 lg:h-64 w-auto mx-auto"
                 style={{ mixBlendMode: 'multiply' }}
                 animate={{ 
                   filter: [
