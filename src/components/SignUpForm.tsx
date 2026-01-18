@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import roinamisLogo from "@/assets/roinamis-logo.png";
+import roinamisLogo from "@/assets/roinamis-logo-transparent.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
