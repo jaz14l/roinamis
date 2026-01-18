@@ -47,11 +47,19 @@ const SignUpForm = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mb-12"
             >
-              <img
+              <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-28 md:h-36 lg:h-44 w-auto mx-auto"
+                className="h-36 md:h-48 lg:h-56 w-auto mx-auto"
                 style={{ mixBlendMode: 'multiply' }}
+                animate={{ 
+                  filter: [
+                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))',
+                    'drop-shadow(0 0 35px rgba(100,85,70,0.6))',
+                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))'
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
 
@@ -160,11 +168,19 @@ const SignUpForm = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <img
+              <motion.img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-28 md:h-36 lg:h-44 w-auto mx-auto"
+                className="h-36 md:h-48 lg:h-56 w-auto mx-auto"
                 style={{ mixBlendMode: 'multiply' }}
+                animate={{ 
+                  filter: [
+                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))',
+                    'drop-shadow(0 0 35px rgba(100,85,70,0.6))',
+                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))'
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
 
