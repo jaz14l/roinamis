@@ -50,7 +50,7 @@ const SignUpForm = () => {
               <img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto"
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
               />
             </motion.div>
 
@@ -162,7 +162,7 @@ const SignUpForm = () => {
               <img
                 src={roinamisLogo}
                 alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto"
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
               />
             </motion.div>
 
