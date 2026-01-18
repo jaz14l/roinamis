@@ -40,18 +40,23 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
-            {/* Logo */}
+            {/* Logo - using multiply blend to knock out white background */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-14"
+              className="mb-14 relative"
             >
-              <img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-16 md:h-20 lg:h-24 w-auto mx-auto invert brightness-90"
-              />
+              <div 
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto flex items-center justify-center"
+                style={{ mixBlendMode: "screen" }}
+              >
+                <img
+                  src={roinamisLogo}
+                  alt="roinamis"
+                  className="h-full w-auto invert"
+                />
+              </div>
             </motion.div>
 
             {/* Tagline */}
@@ -157,13 +162,18 @@ const SignUpForm = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="mb-14"
+              className="mb-14 relative"
             >
-              <img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-16 md:h-20 lg:h-24 w-auto mx-auto invert brightness-90"
-              />
+              <div 
+                className="h-20 md:h-24 lg:h-28 w-auto mx-auto flex items-center justify-center"
+                style={{ mixBlendMode: "screen" }}
+              >
+                <img
+                  src={roinamisLogo}
+                  alt="roinamis"
+                  className="h-full w-auto invert"
+                />
+              </div>
             </motion.div>
 
             <motion.p

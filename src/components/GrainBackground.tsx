@@ -1,37 +1,50 @@
 import { motion } from "framer-motion";
+import bgAtmosphere from "@/assets/bg-atmosphere.jpg";
 
 const GrainBackground = () => {
   return (
     <>
-      {/* Animated gradient background */}
+      {/* Base dark layer */}
+      <div className="fixed inset-0 -z-30 bg-background" />
+
+      {/* Atmospheric background image with fade */}
       <motion.div
-        className="fixed inset-0 -z-20"
+        className="fixed inset-0 -z-25"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 3, ease: "easeOut" }}
+        style={{
+          backgroundImage: `url(${bgAtmosphere})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 30%",
+        }}
+      />
+
+      {/* Dark vignette overlay to fade edges */}
+      <div
+        className="fixed inset-0 -z-24"
         style={{
           background: `
-            radial-gradient(ellipse 80% 60% at 50% 40%, hsl(32 12% 12%) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 80% at 80% 80%, hsl(28 10% 10%) 0%, transparent 50%),
-            radial-gradient(ellipse 70% 70% at 20% 90%, hsl(35 8% 8%) 0%, transparent 40%),
-            hsl(30 10% 6%)
+            radial-gradient(ellipse 70% 50% at 50% 40%, transparent 0%, hsl(30 10% 6% / 0.7) 70%, hsl(30 10% 6%) 100%),
+            linear-gradient(to top, hsl(30 10% 6%) 0%, transparent 40%),
+            linear-gradient(to bottom, hsl(30 10% 6% / 0.6) 0%, transparent 30%)
           `,
         }}
       />
 
-      {/* Subtle light shift animation */}
+      {/* Subtle animated gradient overlay */}
       <motion.div
-        className="fixed inset-0 -z-10 opacity-30"
+        className="fixed inset-0 -z-20 opacity-40"
         animate={{
           background: [
-            "radial-gradient(ellipse 100% 100% at 30% 30%, hsl(35 15% 15% / 0.3) 0%, transparent 60%)",
-            "radial-gradient(ellipse 100% 100% at 70% 60%, hsl(30 12% 14% / 0.3) 0%, transparent 60%)",
-            "radial-gradient(ellipse 100% 100% at 40% 70%, hsl(32 10% 12% / 0.3) 0%, transparent 60%)",
-            "radial-gradient(ellipse 100% 100% at 30% 30%, hsl(35 15% 15% / 0.3) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 40% 50%, hsl(35 15% 12% / 0.4) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 60% 40%, hsl(30 12% 10% / 0.4) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 50% 55%, hsl(32 10% 11% / 0.4) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 40% 50%, hsl(35 15% 12% / 0.4) 0%, transparent 60%)",
           ],
         }}
         transition={{
-          duration: 20,
+          duration: 25,
           repeat: Infinity,
           ease: "linear",
         }}
