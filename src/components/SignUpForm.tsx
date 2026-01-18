@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import roinamisLogo from "@/assets/roinamis-logo-dark.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -40,23 +39,6 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
-            {/* Logo - using multiply blend to knock out white background */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-14 relative"
-            >
-              <motion.img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto rounded-lg"
-                animate={{ 
-                  filter: ['drop-shadow(0 0 20px rgba(100,85,70,0.5))', 'drop-shadow(0 0 40px rgba(100,85,70,0.7))', 'drop-shadow(0 0 20px rgba(100,85,70,0.5))']
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
 
             {/* Tagline */}
             <motion.p
@@ -156,23 +138,6 @@ const SignUpForm = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-14 relative"
-            >
-              <motion.img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto rounded-lg"
-                animate={{ 
-                  filter: ['drop-shadow(0 0 20px rgba(100,85,70,0.5))', 'drop-shadow(0 0 40px rgba(100,85,70,0.7))', 'drop-shadow(0 0 20px rgba(100,85,70,0.5))']
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
