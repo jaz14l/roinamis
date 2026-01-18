@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import roinamisLogo from "@/assets/roinamis-logo.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +40,20 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="mb-12"
+            >
+              <img
+                src={roinamisLogo}
+                alt="roinamis"
+                className="h-28 md:h-36 lg:h-44 w-auto mx-auto"
+                style={{ mixBlendMode: 'multiply' }}
+              />
+            </motion.div>
 
             {/* Tagline */}
             <motion.p
@@ -138,6 +153,20 @@ const SignUpForm = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-12"
+            >
+              <img
+                src={roinamisLogo}
+                alt="roinamis"
+                className="h-28 md:h-36 lg:h-44 w-auto mx-auto"
+                style={{ mixBlendMode: 'multiply' }}
+              />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
