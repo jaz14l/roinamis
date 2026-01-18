@@ -47,16 +47,11 @@ const SignUpForm = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mb-14 relative"
             >
-              <div 
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto flex items-center justify-center"
-                style={{ mixBlendMode: "screen" }}
-              >
-                <img
-                  src={roinamisLogo}
-                  alt="roinamis"
-                  className="h-full w-auto invert"
-                />
-              </div>
+              <img
+                src={roinamisLogo}
+                alt="roinamis"
+                className="h-20 md:h-24 lg:h-28 w-auto"
+              />
             </motion.div>
 
             {/* Tagline */}
@@ -144,7 +139,7 @@ const SignUpForm = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-8"
             >
-              <a href="#" className="link-subtle">
+              <a href="/privacy" className="link-subtle">
                 Privacy Policy
               </a>
             </motion.p>
@@ -164,16 +159,11 @@ const SignUpForm = () => {
               transition={{ duration: 0.8 }}
               className="mb-14 relative"
             >
-              <div 
-                className="h-20 md:h-24 lg:h-28 w-auto mx-auto flex items-center justify-center"
-                style={{ mixBlendMode: "screen" }}
-              >
-                <img
-                  src={roinamisLogo}
-                  alt="roinamis"
-                  className="h-full w-auto invert"
-                />
-              </div>
+              <img
+                src={roinamisLogo}
+                alt="roinamis"
+                className="h-20 md:h-24 lg:h-28 w-auto"
+              />
             </motion.div>
 
             <motion.p
