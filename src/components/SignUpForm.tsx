@@ -70,7 +70,7 @@ const SignUpForm = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-tagline mb-10"
             >
-              Early access. Limited drops.
+              <span className="border-b border-muted-foreground/30 pb-0.5">Early access</span>. <span className="border-b border-muted-foreground/30 pb-0.5">Limited drops</span>.
             </motion.p>
 
             {/* Form */}
@@ -116,7 +116,7 @@ const SignUpForm = () => {
                   className="text-tagline hover:text-foreground transition-colors duration-300 py-2"
                   whileTap={{ scale: 0.98 }}
                 >
-                  + Add phone for SMS
+                  + <span className="border-b border-muted-foreground/30 pb-0.5">Add phone for SMS</span>
                 </motion.button>
               )}
 
