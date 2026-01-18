@@ -51,6 +51,7 @@ const SignUpForm = () => {
                 src={roinamisLogo}
                 alt="roinamis"
                 className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
+                style={{ mixBlendMode: 'multiply' }}
               />
             </motion.div>
 
@@ -163,6 +164,7 @@ const SignUpForm = () => {
                 src={roinamisLogo}
                 alt="roinamis"
                 className="h-20 md:h-24 lg:h-28 w-auto mx-auto"
+                style={{ mixBlendMode: 'multiply' }}
               />
             </motion.div>
 
