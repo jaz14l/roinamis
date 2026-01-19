@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import roinamisLogo from "@/assets/roinamis-logo.png";
 
 const SignUpForm = () => {
@@ -8,6 +10,7 @@ const SignUpForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showPhone, setShowPhone] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,10 +18,28 @@ const SignUpForm = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    const { error } = await supabase
+      .from("email_signups")
+      .insert({ email, phone: phone || null });
 
     setIsSubmitting(false);
+
+    if (error) {
+      if (error.code === "23505") {
+        toast({
+          title: "Already signed up",
+          description: "This email is already on our list.",
+        });
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again.",
+          variant: "destructive",
+        });
+      }
+      return;
+    }
+
     setIsSubmitted(true);
   };
 
