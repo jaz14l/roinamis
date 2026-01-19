@@ -70,7 +70,7 @@ const SignUpForm = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-tagline mb-10"
             >
-              <span className="border-b border-muted-foreground/30 pb-0.5">Early access</span>. <span className="border-b border-muted-foreground/30 pb-0.5">Limited drops</span>.
+              <span className="border-b border-muted-foreground/30 pb-0.5">Join for updates</span>
             </motion.p>
 
             {/* Form */}
