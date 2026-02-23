@@ -40,6 +40,11 @@ const SignUpForm = () => {
       return;
     }
 
+    // Fire-and-forget Zapier webhook for welcome email
+    supabase.functions.invoke('zapier-webhook', {
+      body: { email, phone: phone || null },
+    }).catch(console.error);
+
     setIsSubmitted(true);
   };
 
