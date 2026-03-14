@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import roinamisLogo from "@/assets/roinamis-logo.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -66,29 +65,6 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-12"
-            >
-              <motion.img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-44 md:h-56 lg:h-64 w-auto mx-auto"
-                style={{ mixBlendMode: 'multiply' }}
-                animate={{ 
-                  filter: [
-                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))',
-                    'drop-shadow(0 0 35px rgba(100,85,70,0.6))',
-                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))'
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
-
             {/* Tagline */}
             <motion.p
               initial={{ opacity: 0 }}
@@ -187,29 +163,6 @@ const SignUpForm = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-12"
-            >
-              <motion.img
-                src={roinamisLogo}
-                alt="roinamis"
-                className="h-44 md:h-56 lg:h-64 w-auto mx-auto"
-                style={{ mixBlendMode: 'multiply' }}
-                animate={{ 
-                  filter: [
-                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))',
-                    'drop-shadow(0 0 35px rgba(100,85,70,0.6))',
-                    'drop-shadow(0 0 15px rgba(80,70,60,0.4))'
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
-
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
