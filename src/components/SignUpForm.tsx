@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import roinamisLogo from "@/assets/roinamis-logo.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
