@@ -139,6 +139,21 @@ export const products: Product[] = [
       "Each bracelet is one of one",
     ],
   },
+  {
+    id: "ball-chain",
+    name: "Question Everything Ball Chain",
+    category: "accessory",
+    price: 35,
+    colorway: "Silver",
+    image: ballChain,
+    description: "Silver ball chain with an inverted question mark pendant. Question everything. Trust the process.",
+    details: [
+      "Sterling silver ball chain",
+      "Inverted question mark pendant",
+      "Lobster clasp closure",
+      "20\" chain length",
+    ],
+  },
 ];
 
 export const getProductById = (id: string) => products.find((p) => p.id === id);
