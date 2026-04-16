@@ -1,11 +1,19 @@
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import FeaturedProducts from "@/components/FeaturedProducts";
+import BrandStatement from "@/components/BrandStatement";
+import Footer from "@/components/Footer";
 import GrainBackground from "@/components/GrainBackground";
-import SignUpForm from "@/components/SignUpForm";
 
 const Index = () => {
   return (
-    <main className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <main className="relative">
       <GrainBackground />
-      <SignUpForm />
+      <Navigation />
+      <HeroSection />
+      <FeaturedProducts />
+      <BrandStatement />
+      <Footer />
     </main>
   );
 };
