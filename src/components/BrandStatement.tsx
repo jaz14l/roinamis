@@ -19,7 +19,7 @@ const BrandStatement = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-foreground text-xl md:text-2xl lg:text-3xl font-light leading-relaxed tracking-wide"
+          className="text-foreground text-xl md:text-2xl lg:text-3xl font-display font-light leading-relaxed tracking-wide"
         >
           Not church merch. Not hype. Just culture rooted in something deeper. Every thread, every print, every name carries meaning — if you know, you know.
         </motion.blockquote>

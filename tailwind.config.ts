@@ -68,7 +68,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Outfit", "sans-serif"],
+        display: ["Cormorant Garamond", "serif"],
       },
       keyframes: {
         "accordion-down": {

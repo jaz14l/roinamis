@@ -32,34 +32,19 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-foreground text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-tight mb-6 max-w-2xl"
+          className="text-foreground text-3xl md:text-5xl lg:text-6xl font-display font-light tracking-wide leading-tight mb-6 max-w-2xl"
         >
           You were seen before you were ready.
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-muted-foreground text-sm md:text-base tracking-wide mb-10 max-w-md"
-        >
-          Faith-rooted streetwear for those navigating identity, ambition, and purpose. Every piece carries a story.
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-10"
         >
-          <Link to="/shop" className="btn-brand text-center max-w-xs">
+          <Link to="/shop" className="btn-brand text-center max-w-xs inline-block">
             Shop the Drop
-          </Link>
-          <Link
-            to="/about"
-            className="text-tagline hover:text-foreground transition-colors duration-300 py-3.5 px-6 text-center"
-          >
-            Our Story →
           </Link>
         </motion.div>
       </div>
