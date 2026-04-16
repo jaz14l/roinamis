@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <p className="text-foreground font-medium tracking-[0.2em] text-sm uppercase mb-4">
+            <p className="text-foreground font-medium tracking-[0.2em] text-sm mb-4">
               roinamis
             </p>
             <p className="text-muted-foreground text-xs leading-relaxed tracking-wide max-w-xs">
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border/30">
-          <p className="text-muted-foreground text-[0.625rem] tracking-[0.15em] uppercase">
+          <p className="text-muted-foreground text-[0.625rem] tracking-[0.15em]">
             © {new Date().getFullYear()} roinamis. wear the story.
           </p>
         </div>

@@ -53,7 +53,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-foreground text-lg md:text-xl font-light leading-relaxed tracking-wide">
-              Roinamis was born from a space most people don't talk about — the in-between. Between faith and the real world. Between who you are and who you're becoming. Between being seen and feeling invisible.
+              roinamis was born from a space most people don't talk about — the in-between. Between faith and the real world. Between who you are and who you're becoming. Between being seen and feeling invisible.
             </p>
           </motion.div>
 
