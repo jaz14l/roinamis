@@ -5,6 +5,7 @@ import teeOlive from "@/assets/products/tee-olive.jpg";
 import teeSand from "@/assets/products/tee-sand.jpg";
 import jacketBrown from "@/assets/products/jacket-brown.jpg";
 import bracelet from "@/assets/products/bracelet.jpg";
+import ballChain from "@/assets/products/ball-chain.jpg";
 
 export interface Product {
   id: string;
@@ -136,6 +137,21 @@ export const products: Product[] = [
       "Inspired by West African beadwork",
       "Adjustable elastic band",
       "Each bracelet is one of one",
+    ],
+  },
+  {
+    id: "ball-chain",
+    name: "Question Everything Ball Chain",
+    category: "accessory",
+    price: 35,
+    colorway: "Silver",
+    image: ballChain,
+    description: "Silver ball chain with an inverted question mark pendant. Question everything. Trust the process.",
+    details: [
+      "Sterling silver ball chain",
+      "Inverted question mark pendant",
+      "Lobster clasp closure",
+      "20\" chain length",
     ],
   },
 ];
