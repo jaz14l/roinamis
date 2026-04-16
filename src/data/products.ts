@@ -5,6 +5,7 @@ import teeOlive from "@/assets/products/tee-olive.jpg";
 import teeSand from "@/assets/products/tee-sand.jpg";
 import jacketBrown from "@/assets/products/jacket-brown.jpg";
 import bracelet from "@/assets/products/bracelet.jpg";
+import ballChain from "@/assets/products/ball-chain.jpg";
 
 export interface Product {
   id: string;
