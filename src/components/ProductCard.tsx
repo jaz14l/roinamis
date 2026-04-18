@@ -8,6 +8,12 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
+  const primary = product.colorways[0];
+  const colorLabel =
+    product.colorways.length > 1
+      ? `${product.colorways.length} colors`
+      : primary.name;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -18,8 +24,8 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       <Link to={`/product/${product.id}`} className="group block">
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4">
           <img
-            src={product.image}
-            alt={`${product.name} in ${product.colorway}`}
+            src={primary.image}
+            alt={`${product.name} in ${primary.name}`}
             loading="lazy"
             width={800}
             height={1024}
@@ -32,7 +38,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <p className="text-foreground text-sm">${product.price}</p>
           </div>
           <p className="text-muted-foreground text-xs tracking-[0.1em] uppercase">
-            {product.colorway}
+            {colorLabel}
             {product.soldOut && <span className="ml-2 text-destructive">Sold out</span>}
           </p>
         </div>
