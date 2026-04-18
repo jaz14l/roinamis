@@ -5,7 +5,7 @@ import { products } from "@/data/products";
 
 const FeaturedProducts = () => {
   const featured = products.filter((p) =>
-    ["hoodie-sand", "tee-olive", "jacket-brown", "bracelet-earth"].includes(p.id)
+    ["el-roi-hoodie", "heritage-tee", "adinkra-jacket", "sankofa-bracelet"].includes(p.id)
   );
 
   return (

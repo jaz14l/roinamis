@@ -7,13 +7,18 @@ import jacketBrown from "@/assets/products/jacket-brown.jpg";
 import bracelet from "@/assets/products/bracelet.jpg";
 import ballChain from "@/assets/products/ball-chain.jpg";
 
+export interface Colorway {
+  name: string;
+  image: string;
+  swatch: string; // hex for the small color dot
+}
+
 export interface Product {
   id: string;
   name: string;
   category: "hoodie" | "tee" | "jacket" | "accessory";
   price: number;
-  colorway: string;
-  image: string;
+  colorways: Colorway[];
   description: string;
   details: string[];
   sizes?: string[];
@@ -22,13 +27,17 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: "hoodie-sand",
+    id: "el-roi-hoodie",
     name: "El Roi Hoodie",
     category: "hoodie",
     price: 105,
-    colorway: "Sand",
-    image: hoodieSand,
-    description: "Heavyweight 400gsm cotton. Oversized silhouette. Tonal embroidery at chest. You were seen before you were ready.",
+    colorways: [
+      { name: "Sand", image: hoodieSand, swatch: "#c9b89a" },
+      { name: "Clay", image: hoodieClay, swatch: "#a8745a" },
+      { name: "Olive", image: hoodieOlive, swatch: "#6b6a4a" },
+    ],
+    description:
+      "Heavyweight 400gsm cotton. Oversized silhouette. Tonal embroidery at chest. You were seen before you were ready.",
     details: [
       "400gsm heavyweight French terry",
       "Oversized drop-shoulder fit",
@@ -39,47 +48,16 @@ export const products: Product[] = [
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
-    id: "hoodie-clay",
-    name: "El Roi Hoodie",
-    category: "hoodie",
-    price: 105,
-    colorway: "Clay",
-    image: hoodieClay,
-    description: "Heavyweight 400gsm cotton. Oversized silhouette. Tonal embroidery at chest. Rooted in something deeper.",
-    details: [
-      "400gsm heavyweight French terry",
-      "Oversized drop-shoulder fit",
-      "Tonal El Roi embroidery",
-      "Ribbed cuffs and hem",
-      "Kangaroo pocket",
-    ],
-    sizes: ["S", "M", "L", "XL", "XXL"],
-  },
-  {
-    id: "hoodie-olive",
-    name: "El Roi Hoodie",
-    category: "hoodie",
-    price: 105,
-    colorway: "Olive",
-    image: hoodieOlive,
-    description: "Heavyweight 400gsm cotton. Oversized silhouette. Tonal embroidery at chest. Still here. Still seen.",
-    details: [
-      "400gsm heavyweight French terry",
-      "Oversized drop-shoulder fit",
-      "Tonal El Roi embroidery",
-      "Ribbed cuffs and hem",
-      "Kangaroo pocket",
-    ],
-    sizes: ["S", "M", "L", "XL", "XXL"],
-  },
-  {
-    id: "tee-olive",
+    id: "heritage-tee",
     name: "Heritage Tee",
     category: "tee",
     price: 65,
-    colorway: "Olive",
-    image: teeOlive,
-    description: "Oversized boxy fit. Ghanaian-inspired tonal print. 280gsm cotton. The pattern carries the story.",
+    colorways: [
+      { name: "Olive", image: teeOlive, swatch: "#6b6a4a" },
+      { name: "Sand", image: teeSand, swatch: "#c9b89a" },
+    ],
+    description:
+      "Oversized boxy fit. Ghanaian-inspired tonal print. 280gsm cotton. The pattern carries the story.",
     details: [
       "280gsm premium cotton",
       "Oversized boxy cut",
@@ -90,30 +68,13 @@ export const products: Product[] = [
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
-    id: "tee-sand",
-    name: "Heritage Tee",
-    category: "tee",
-    price: 65,
-    colorway: "Sand",
-    image: teeSand,
-    description: "Oversized boxy fit. Clean and grounded. 280gsm cotton. Less noise, more meaning.",
-    details: [
-      "280gsm premium cotton",
-      "Oversized boxy cut",
-      "Subtle woven label detail",
-      "Ribbed crew neck",
-      "Drop shoulder",
-    ],
-    sizes: ["S", "M", "L", "XL", "XXL"],
-  },
-  {
-    id: "jacket-brown",
+    id: "adinkra-jacket",
     name: "Adinkra Jacket",
     category: "jacket",
     price: 145,
-    colorway: "Deep Brown",
-    image: jacketBrown,
-    description: "Statement piece. Structured oversized silhouette with Ghanaian Adinkra-inspired panel detailing. One per drop.",
+    colorways: [{ name: "Deep Brown", image: jacketBrown, swatch: "#4a3325" }],
+    description:
+      "Statement piece. Structured oversized silhouette with Ghanaian Adinkra-inspired panel detailing. One per drop.",
     details: [
       "Heavy wool-blend shell",
       "Adinkra-inspired embroidered panels",
@@ -125,13 +86,13 @@ export const products: Product[] = [
     soldOut: false,
   },
   {
-    id: "bracelet-earth",
+    id: "sankofa-bracelet",
     name: "Sankofa Bracelet",
     category: "accessory",
     price: 30,
-    colorway: "Earth",
-    image: bracelet,
-    description: "Handcrafted wooden and stone beads. West African craft tradition. Each one is unique. Go back and get it.",
+    colorways: [{ name: "Earth", image: bracelet, swatch: "#8a6a4a" }],
+    description:
+      "Handcrafted wooden and stone beads. West African craft tradition. Each one is unique. Go back and get it.",
     details: [
       "Hand-selected wooden and stone beads",
       "Inspired by West African beadwork",
@@ -140,18 +101,18 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "ball-chain",
+    id: "question-everything-ball-chain",
     name: "Question Everything Ball Chain",
     category: "accessory",
     price: 35,
-    colorway: "Silver",
-    image: ballChain,
-    description: "Silver ball chain with an inverted question mark pendant. Question everything. Trust the process.",
+    colorways: [{ name: "Silver", image: ballChain, swatch: "#c0c0c0" }],
+    description:
+      "Silver ball chain with an inverted question mark pendant. Question everything. Trust the process.",
     details: [
       "Sterling silver ball chain",
       "Inverted question mark pendant",
       "Lobster clasp closure",
-      "20\" chain length",
+      '20" chain length',
     ],
   },
 ];
