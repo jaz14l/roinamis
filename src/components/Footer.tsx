@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="border-t border-border/50 bg-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-20">
+        <div className="text-center mb-16">
+          <Link to="/" className="text-foreground font-display font-light tracking-[0.4em] text-2xl md:text-3xl">
+            roinamis
+          </Link>
+          <p className="text-muted-foreground text-xs leading-relaxed tracking-[0.05em] max-w-md mx-auto mt-6">
+            El Roi — the God who sees you. Faith-rooted streetwear for those navigating identity, ambition, and purpose.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-3xl mx-auto">
           <div>
-            <p className="text-foreground font-medium tracking-[0.2em] text-sm mb-4">
-              roinamis
-            </p>
-            <p className="text-muted-foreground text-xs leading-relaxed tracking-wide max-w-xs">
-              El Roi — the God who sees you. Faith-rooted streetwear for those navigating identity, ambition, and purpose.
-            </p>
-          </div>
 
           <div>
             <p className="text-xs tracking-[0.15em] uppercase text-foreground mb-4">Navigate</p>

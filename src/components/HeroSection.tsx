@@ -1,52 +1,63 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-lifestyle.jpg";
+import hoodieSand from "@/assets/products/hoodie-sand.jpg";
+import jacketBrown from "@/assets/products/jacket-brown.jpg";
 
 const HeroSection = () => {
+  const panels = [
+    {
+      label: "The Hoodie",
+      sub: "Drop 001",
+      cta: "Shop hoodies",
+      to: "/shop?category=hoodie",
+      image: hoodieSand,
+    },
+    {
+      label: "The Jacket",
+      sub: "Statement piece",
+      cta: "Shop jackets",
+      to: "/shop?category=jacket",
+      image: jacketBrown,
+    },
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* Hero image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="roinamis — wear the story"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-      </div>
+    <section className="pt-[5.25rem] md:pt-[5.5rem]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/40">
+        {panels.map((panel, i) => (
+          <motion.div
+            key={panel.label}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: i * 0.15 }}
+            className="relative group overflow-hidden bg-background"
+          >
+            <Link to={panel.to} className="block">
+              <div className="relative aspect-[3/4] md:aspect-auto md:h-[calc(100vh-5.5rem)] overflow-hidden">
+                <img
+                  src={panel.image}
+                  alt={panel.label}
+                  width={1200}
+                  height={1600}
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
+              </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-20 md:pb-28 w-full">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-tagline mb-4"
-        >
-          Drop 001
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-foreground text-3xl md:text-5xl lg:text-6xl font-display font-light tracking-wide leading-tight mb-6 max-w-2xl"
-        >
-          You were seen before you were ready.
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10"
-        >
-          <Link to="/shop" className="btn-brand text-center max-w-xs inline-block">
-            Shop the Drop
-          </Link>
-        </motion.div>
+              <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 text-center">
+                <p className="text-[0.625rem] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+                  {panel.sub}
+                </p>
+                <h2 className="text-foreground text-2xl md:text-3xl font-display font-light tracking-[0.05em] mb-5">
+                  {panel.label}
+                </h2>
+                <span className="inline-block text-[0.6875rem] tracking-[0.2em] uppercase text-foreground border-b border-foreground/60 pb-1">
+                  {panel.cta}
+                </span>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
