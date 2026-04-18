@@ -8,7 +8,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
-  const primary = product.colorways[0];
+  const primary = product.colorways?.[0];
+  if (!primary) return null;
   const colorLabel =
     product.colorways.length > 1
       ? `${product.colorways.length} colors`
