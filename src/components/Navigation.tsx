@@ -7,78 +7,117 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const links = [
+  const leftLinks = [
     { to: "/shop", label: "Shop" },
+    { to: "/shop?category=hoodie", label: "Hoodies" },
+    { to: "/shop?category=accessory", label: "Accessories" },
+  ];
+
+  const rightLinks = [
     { to: "/about", label: "Story" },
+    { to: "/signup", label: "Journal" },
     { to: "/signup", label: "Join" },
   ];
 
+  const allLinks = [...leftLinks, ...rightLinks];
+
+  const linkClass = (to: string) =>
+    `text-[0.6875rem] tracking-[0.18em] uppercase transition-colors duration-300 ${
+      location.pathname + location.search === to || location.pathname === to
+        ? "text-foreground"
+        : "text-muted-foreground hover:text-foreground"
+    }`;
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-foreground font-display font-medium tracking-[0.2em] text-base">
-            roinamis
-          </Link>
-
-          {/* Desktop */}
-          <div className="hidden md:flex items-center gap-10">
-            {links.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 ${
-                  location.pathname === link.to
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground"
-            aria-label="Menu"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Utility strip */}
+      <div className="bg-foreground text-background">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8 h-7 flex items-center justify-center">
+          <p className="text-[0.625rem] tracking-[0.2em] uppercase">
+            Drop 001 — free shipping over $150
+          </p>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md"
-          >
-            <div className="px-6 py-6 flex flex-col gap-5">
-              {links.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 ${
-                    location.pathname === link.to
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
+      {/* Main nav */}
+      <nav className="bg-background/85 backdrop-blur-md border-b border-border/40">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8">
+          {/* Desktop layout: 3-column with centered wordmark */}
+          <div className="hidden md:grid grid-cols-3 items-center h-14">
+            <div className="flex items-center gap-8">
+              {leftLinks.map((link) => (
+                <Link key={link.label} to={link.to} className={linkClass(link.to)}>
                   {link.label}
                 </Link>
               ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+
+            <Link
+              to="/"
+              className="justify-self-center text-foreground font-display font-light tracking-[0.35em] text-lg"
+            >
+              roinamis
+            </Link>
+
+            <div className="flex items-center gap-8 justify-end">
+              {rightLinks.map((link) => (
+                <Link key={link.label} to={link.to} className={linkClass(link.to)}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile layout */}
+          <div className="md:hidden flex items-center justify-between h-14">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-foreground"
+              aria-label="Menu"
+            >
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+
+            <Link
+              to="/"
+              className="text-foreground font-display font-light tracking-[0.3em] text-base"
+            >
+              roinamis
+            </Link>
+
+            <Link to="/signup" className="text-[0.6875rem] tracking-[0.18em] uppercase text-muted-foreground">
+              Join
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-md overflow-hidden"
+            >
+              <div className="px-6 py-6 flex flex-col gap-5">
+                {allLinks.map((link, i) => (
+                  <Link
+                    key={`${link.label}-${i}`}
+                    to={link.to}
+                    onClick={() => setIsOpen(false)}
+                    className="text-xs tracking-[0.18em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </header>
   );
 };
 
