@@ -13,9 +13,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-3xl mx-auto">
-          <div>
-
+        <div className="grid grid-cols-2 gap-12 max-w-2xl mx-auto">
           <div>
             <p className="text-xs tracking-[0.15em] uppercase text-foreground mb-4">Navigate</p>
             <div className="flex flex-col gap-3">
@@ -36,8 +34,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/30">
-          <p className="text-muted-foreground text-[0.625rem] tracking-[0.15em]">
+        <div className="mt-20 pt-8 border-t border-border/30 text-center">
+          <p className="text-muted-foreground text-[0.625rem] tracking-[0.2em] uppercase">
             © {new Date().getFullYear()} roinamis. wear the story.
           </p>
         </div>
