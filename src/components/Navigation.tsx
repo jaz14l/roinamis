@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/roinamis-logo-transparent.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +18,9 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-foreground font-display font-medium tracking-[0.2em] text-base">
-            roinamis
+          <Link to="/" className="flex items-center gap-2 text-foreground font-display font-medium tracking-[0.2em] text-base" aria-label="roinamis home">
+            <img src={logo} alt="roinamis" className="h-7 w-auto" />
+            <span>roinamis</span>
           </Link>
 
           {/* Desktop */}
