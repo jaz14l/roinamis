@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import RoinamisMark from "./RoinamisMark";
+
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,10 +56,14 @@ const Navigation = () => {
 
             <Link
               to="/"
-              className="justify-self-center text-foreground font-display font-light tracking-[0.35em] text-lg"
+              className="justify-self-center flex flex-col items-center gap-1 text-foreground"
             >
-              roinamis
+              <RoinamisMark className="h-6 w-auto" strokeWidth={3} />
+              <span className="font-display font-light tracking-[0.4em] text-[0.7rem] leading-none">
+                roinamis
+              </span>
             </Link>
+
 
             <div className="flex items-center gap-8 justify-end">
               {rightLinks.map((link) => (
@@ -80,10 +86,14 @@ const Navigation = () => {
 
             <Link
               to="/"
-              className="text-foreground font-display font-light tracking-[0.3em] text-base"
+              className="flex flex-col items-center gap-0.5 text-foreground"
             >
-              roinamis
+              <RoinamisMark className="h-5 w-auto" strokeWidth={3} />
+              <span className="font-display font-light tracking-[0.35em] text-[0.625rem] leading-none">
+                roinamis
+              </span>
             </Link>
+
 
             <Link to="/signup" className="text-[0.6875rem] tracking-[0.18em] uppercase text-muted-foreground">
               Join
