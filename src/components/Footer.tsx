@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
+import RoinamisMark from "./RoinamisMark";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border/50 bg-background">
+    <footer className="border-t border-border/60 bg-background">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-20">
         <div className="text-center mb-16">
-          <Link to="/" className="text-foreground font-display font-light tracking-[0.4em] text-2xl md:text-3xl">
-            roinamis
+          <Link to="/" className="inline-flex flex-col items-center gap-3 text-foreground">
+            <RoinamisMark className="h-10 w-auto" strokeWidth={2.5} />
+            <span className="font-display font-light tracking-[0.4em] text-lg md:text-xl">
+              roinamis
+            </span>
           </Link>
           <p className="text-muted-foreground text-xs leading-relaxed tracking-[0.05em] max-w-md mx-auto mt-6">
             El Roi — the God who sees you. Faith-rooted streetwear for those navigating identity, ambition, and purpose.
           </p>
         </div>
+
 
         <div className="grid grid-cols-2 gap-12 max-w-2xl mx-auto">
           <div>
