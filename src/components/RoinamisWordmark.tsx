@@ -1,4 +1,4 @@
-import wordmark from "@/assets/roinamis-wordmark.png";
+import wordmarkAsset from "@/assets/roinamis-wordmark.png.asset.json";
 
 interface RoinamisWordmarkProps {
   className?: string;
@@ -6,7 +6,7 @@ interface RoinamisWordmarkProps {
 
 /** roinamis word logo — rendered as image for typographic fidelity. */
 const RoinamisWordmark = ({ className }: RoinamisWordmarkProps) => (
-  <img src={wordmark} alt="roinamis" className={className} draggable={false} />
+  <img src={wordmarkAsset.url} alt="roinamis" className={className} draggable={false} />
 );
 
 export default RoinamisWordmark;
