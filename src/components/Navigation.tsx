@@ -10,14 +10,14 @@ const Navigation = () => {
   const location = useLocation();
 
   const leftLinks = [
-    { to: "/shop", label: "Shop" },
+    { to: "/shop", label: "Shop All" },
     { to: "/shop?category=hoodie", label: "Hoodies" },
-    { to: "/shop?category=accessory", label: "Accessories" },
+    { to: "/shop?category=jacket", label: "Jackets" },
   ];
 
   const rightLinks = [
-    { to: "/about", label: "Story" },
-    { to: "/signup", label: "Journal" },
+    { to: "/shop?category=accessory", label: "Accessories" },
+    { to: "/signup", label: "Sign In" },
     { to: "/signup", label: "Join" },
   ];
 
@@ -58,7 +58,7 @@ const Navigation = () => {
               to="/"
               className="justify-self-center flex flex-col items-center gap-1 text-foreground"
             >
-              <RoinamisMark className="h-6 w-auto" strokeWidth={3} />
+              <RoinamisMark className="h-7 w-auto" />
               <span className="font-display font-light tracking-[0.4em] text-[0.7rem] leading-none">
                 roinamis
               </span>
@@ -88,7 +88,7 @@ const Navigation = () => {
               to="/"
               className="flex flex-col items-center gap-0.5 text-foreground"
             >
-              <RoinamisMark className="h-5 w-auto" strokeWidth={3} />
+              <RoinamisMark className="h-6 w-auto" />
               <span className="font-display font-light tracking-[0.35em] text-[0.625rem] leading-none">
                 roinamis
               </span>

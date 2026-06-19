@@ -7,15 +7,15 @@ import jacketBrown from "@/assets/products/jacket-brown.jpg";
 const HeroSection = () => {
   const panels = [
     {
-      label: "The Hoodie",
+      label: "Hoodies",
       sub: "Drop 001",
       cta: "Shop hoodies",
       to: "/shop?category=hoodie",
       image: hoodieSand,
     },
     {
-      label: "The Jacket",
-      sub: "Statement piece",
+      label: "Jackets",
+      sub: "Drop 001",
       cta: "Shop jackets",
       to: "/shop?category=jacket",
       image: jacketBrown,
@@ -24,58 +24,53 @@ const HeroSection = () => {
 
   return (
     <>
-      {/* Wordmark hero — the logo IS the statement */}
+      {/* Compact brand hero — mark + wordmark, then straight to product */}
       <section className="pt-[5.25rem] md:pt-[5.5rem]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24 text-center">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-16 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: "easeOut" }}
-            className="flex justify-center"
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6"
           >
-            <RoinamisMark className="h-28 md:h-44 w-auto" strokeWidth={2} />
+            <RoinamisMark className="h-20 md:h-28 w-auto" />
+            <span className="font-display font-light tracking-[0.45em] text-foreground text-xl md:text-3xl">
+              roinamis
+            </span>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-tagline mt-10 md:mt-14"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-[0.6875rem] tracking-[0.25em] uppercase text-muted-foreground mt-8"
           >
-            El Roi — the God who sees you
+            Drop 001 — Now available
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            className="font-display font-light tracking-[0.02em] text-foreground text-3xl md:text-5xl lg:text-6xl leading-[1.05] mt-6 max-w-3xl mx-auto"
-          >
-            A horizon, not a hype cycle.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl mx-auto mt-6"
-          >
-            Five arcs. One sun. Heritage layered in tonal earth — built for the
-            in-between.
-          </motion.p>
-
-          {/* Arc gradient hairline divider — a literal echo of the mark */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.4, delay: 1.1, ease: "easeOut" }}
-            style={{ background: "var(--gradient-arc)" }}
-            className="h-px w-40 mx-auto mt-12 origin-center"
-          />
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="mt-6 flex items-center justify-center gap-4"
+          >
+            <Link
+              to="/shop"
+              className="inline-block bg-foreground text-background text-[0.6875rem] tracking-[0.22em] uppercase px-7 py-3 hover:opacity-90 transition-opacity"
+            >
+              Shop the drop
+            </Link>
+            <Link
+              to="/shop?category=hoodie"
+              className="text-[0.6875rem] tracking-[0.22em] uppercase text-foreground border-b border-foreground/60 pb-1"
+            >
+              Hoodies
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Editorial split */}
+      {/* Category split — straight into product */}
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/60">
           {panels.map((panel, i) => (
