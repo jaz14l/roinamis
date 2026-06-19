@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import RoinamisMark from "./RoinamisMark";
+import RoinamisWordmark from "./RoinamisWordmark";
 
 const Footer = () => {
   return (
     <footer className="border-t border-border/60 bg-background">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-16">
         <div className="text-center mb-12">
-          <Link to="/" className="inline-flex flex-col items-center gap-3 text-foreground">
+          <Link to="/" className="inline-flex flex-col items-center gap-4 text-foreground">
             <RoinamisMark className="h-10 w-auto" />
-            <span className="font-display font-light tracking-[0.4em] text-lg md:text-xl">
-              roinamis
-            </span>
+            <RoinamisWordmark className="h-6 md:h-8 w-auto" />
           </Link>
         </div>
 
