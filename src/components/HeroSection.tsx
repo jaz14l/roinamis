@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import RoinamisMark from "./RoinamisMark";
+import RoinamisWordmark from "./RoinamisWordmark";
 import hoodieSand from "@/assets/products/hoodie-sand.jpg";
 import jacketBrown from "@/assets/products/jacket-brown.jpg";
 
@@ -31,12 +32,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-8"
           >
-            <RoinamisMark className="h-20 md:h-28 w-auto" />
-            <span className="font-display font-light tracking-[0.45em] text-foreground text-xl md:text-3xl">
-              roinamis
-            </span>
+            <RoinamisMark className="h-16 md:h-24 w-auto" />
+            <RoinamisWordmark className="h-10 md:h-16 w-auto" />
           </motion.div>
 
           <motion.p

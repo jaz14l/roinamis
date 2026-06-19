@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import RoinamisMark from "./RoinamisMark";
+import RoinamisWordmark from "./RoinamisWordmark";
 
 
 const Navigation = () => {
@@ -56,12 +57,10 @@ const Navigation = () => {
 
             <Link
               to="/"
-              className="justify-self-center flex flex-col items-center gap-1 text-foreground"
+              className="justify-self-center flex flex-col items-center gap-1.5 text-foreground"
             >
-              <RoinamisMark className="h-7 w-auto" />
-              <span className="font-display font-light tracking-[0.4em] text-[0.7rem] leading-none">
-                roinamis
-              </span>
+              <RoinamisMark className="h-6 w-auto" />
+              <RoinamisWordmark className="h-3 w-auto" />
             </Link>
 
 
@@ -86,12 +85,10 @@ const Navigation = () => {
 
             <Link
               to="/"
-              className="flex flex-col items-center gap-0.5 text-foreground"
+              className="flex flex-col items-center gap-1 text-foreground"
             >
-              <RoinamisMark className="h-6 w-auto" />
-              <span className="font-display font-light tracking-[0.35em] text-[0.625rem] leading-none">
-                roinamis
-              </span>
+              <RoinamisMark className="h-5 w-auto" />
+              <RoinamisWordmark className="h-2.5 w-auto" />
             </Link>
 
 
