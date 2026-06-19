@@ -10,7 +10,7 @@ import About from "./pages/About";
 import Signup from "./pages/Signup";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
-import LogoFinalists from "./pages/LogoFinalists";
+
 
 const queryClient = new QueryClient();
 
@@ -27,7 +27,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/logo-finalists" element={<LogoFinalists />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
