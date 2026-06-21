@@ -5,7 +5,7 @@ import heroLifestyle from "@/assets/hero-lifestyle.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center px-6 lg:px-12 pt-24 md:pt-28 pb-16">
+    <section className="relative min-h-[92vh] flex items-center px-6 lg:px-12 pt-32 md:pt-36 pb-16">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-12 gap-8 items-center">
         {/* Left — editorial typography */}
         <div className="col-span-12 lg:col-span-7 relative z-10">
