@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import LookbookStrip from "@/components/LookbookStrip";
 import Footer from "@/components/Footer";
 import GrainBackground from "@/components/GrainBackground";
 
@@ -11,6 +12,7 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <FeaturedProducts />
+      <LookbookStrip />
       <Footer />
     </main>
   );
