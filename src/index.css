@@ -200,6 +200,9 @@
     animation: fade-up 0.8s ease-out 0.4s forwards;
     opacity: 0;
   }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @keyframes grain {
