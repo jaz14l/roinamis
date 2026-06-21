@@ -44,12 +44,9 @@ const EditorialProductCard = ({ product, index = 0, offset = false }: ProductCar
 };
 
 const FeaturedProducts = () => {
-  // dynamic import to avoid circular dep issues
-  const { products } = require("@/data/products");
-  const featured: Product[] = products
-    .filter((p: Product) =>
-      ["el-roi-hoodie", "heritage-tee", "adinkra-jacket"].includes(p.id)
-    );
+  const featured: Product[] = products.filter((p) =>
+    ["el-roi-hoodie", "heritage-tee", "adinkra-jacket"].includes(p.id)
+  );
 
   return (
     <section className="px-6 lg:px-12 py-24 md:py-40 bg-card/40">
