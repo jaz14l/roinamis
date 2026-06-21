@@ -1,44 +1,60 @@
 import { Link } from "react-router-dom";
-import RoinamisMark from "./RoinamisMark";
-import RoinamisWordmark from "./RoinamisWordmark";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("email_signups").insert({ email });
+      if (error) throw error;
+      toast.success("You're on the list.");
+      setEmail("");
+    } catch (err: any) {
+      toast.error(err?.message ?? "Could not subscribe.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <footer className="border-t border-border/60 bg-background">
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-16">
-        <div className="text-center mb-12">
-          <Link to="/" className="inline-flex flex-col items-center gap-4 text-foreground">
-            <RoinamisMark className="h-10 w-auto" />
-            <RoinamisWordmark className="h-6 md:h-8 w-auto" />
-          </Link>
-        </div>
+    <footer className="px-6 lg:px-12 py-24 md:py-32 border-t border-border/40">
+      <div className="max-w-2xl mx-auto text-center">
+        <h4 className="font-display text-3xl md:text-5xl font-light mb-12 tracking-tight text-foreground">
+          Stay within the quiet.
+        </h4>
+        <form onSubmit={onSubmit} className="relative">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="EMAIL ADDRESS"
+            className="w-full bg-transparent border-b border-foreground/20 py-5 text-center text-[10px] tracking-[0.3em] uppercase text-foreground placeholder:text-muted-foreground focus:border-foreground outline-none transition-colors"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="mt-10 text-[10px] font-medium uppercase tracking-[0.4em] bg-foreground text-background px-12 py-5 hover:opacity-90 disabled:opacity-50 transition-all"
+          >
+            {loading ? "Sending…" : "Join the roster"}
+          </button>
+        </form>
 
-        <div className="grid grid-cols-2 gap-12 max-w-2xl mx-auto">
-          <div>
-            <p className="text-xs tracking-[0.15em] uppercase text-foreground mb-4">Shop</p>
-            <div className="flex flex-col gap-3">
-              <Link to="/shop" className="link-subtle">All Products</Link>
-              <Link to="/shop?category=hoodie" className="link-subtle">Hoodies</Link>
-              <Link to="/shop?category=jacket" className="link-subtle">Jackets</Link>
-              <Link to="/shop?category=accessory" className="link-subtle">Accessories</Link>
-            </div>
+        <div className="mt-24 md:mt-32 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] uppercase tracking-[0.25em] text-muted-foreground">
+          <span>roinamis © {new Date().getFullYear()}</span>
+          <div className="flex gap-8">
+            <Link to="/shop" className="hover:text-foreground transition-colors">Shop</Link>
+            <a href="https://instagram.com/roinamis" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+            <a href="mailto:hello@roinamis.com" className="hover:text-foreground transition-colors">Contact</a>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
           </div>
-
-          <div>
-            <p className="text-xs tracking-[0.15em] uppercase text-foreground mb-4">Connect</p>
-            <div className="flex flex-col gap-3">
-              <a href="https://instagram.com/roinamis" target="_blank" rel="noopener noreferrer" className="link-subtle">Instagram</a>
-              <a href="https://tiktok.com/@roinamis" target="_blank" rel="noopener noreferrer" className="link-subtle">TikTok</a>
-              <a href="mailto:hello@roinamis.com" className="link-subtle">Contact</a>
-              <Link to="/privacy" className="link-subtle">Privacy</Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-border/30 text-center">
-          <p className="text-muted-foreground text-[0.625rem] tracking-[0.2em] uppercase">
-            © {new Date().getFullYear()} roinamis
-          </p>
         </div>
       </div>
     </footer>
