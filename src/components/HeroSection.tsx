@@ -1,115 +1,82 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import RoinamisMark from "./RoinamisMark";
-import RoinamisWordmark from "./RoinamisWordmark";
-import hoodieSand from "@/assets/products/hoodie-sand.jpg";
-import jacketBrown from "@/assets/products/jacket-brown.jpg";
+import heroLifestyle from "@/assets/hero-lifestyle.jpg";
 
 const HeroSection = () => {
-  const panels = [
-    {
-      label: "Hoodies",
-      sub: "Drop 001",
-      cta: "Shop hoodies",
-      to: "/shop?category=hoodie",
-      image: hoodieSand,
-    },
-    {
-      label: "Jackets",
-      sub: "Drop 001",
-      cta: "Shop jackets",
-      to: "/shop?category=jacket",
-      image: jacketBrown,
-    },
-  ];
-
   return (
-    <>
-      {/* Compact brand hero — mark + wordmark, then straight to product */}
-      <section className="pt-[5.25rem] md:pt-[5.5rem]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-16 text-center">
+    <section className="relative min-h-[92vh] flex items-center px-6 lg:px-12 pt-24 md:pt-28 pb-16">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-12 gap-8 items-center">
+        {/* Left — editorial typography */}
+        <div className="col-span-12 lg:col-span-7 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="flex flex-col items-center gap-8"
+            transition={{ duration: 0.8 }}
+            className="flex items-center gap-4 mb-10"
           >
-            <RoinamisMark className="h-16 md:h-24 w-auto" />
-            <RoinamisWordmark className="h-10 md:h-16 w-auto" />
+            <RoinamisMark className="h-7 w-auto opacity-80" />
+            <span className="text-[10px] uppercase tracking-[0.4em] font-medium text-muted-foreground">
+              Vol. 01 — Drop 001
+            </span>
           </motion.div>
 
-          <motion.p
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            className="font-display text-[18vw] lg:text-[10rem] font-light leading-[0.82] tracking-tighter mb-12 text-foreground lowercase"
+          >
+            roina<br />
+            <span className="ml-10 lg:ml-32 italic font-extralight">mis.</span>
+          </motion.h1>
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-[0.6875rem] tracking-[0.25em] uppercase text-muted-foreground mt-8"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="max-w-xs lg:ml-auto lg:mr-24"
           >
-            Drop 001 — Now available
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-6 flex items-center justify-center gap-4"
-          >
-            <Link
-              to="/shop"
-              className="inline-block bg-foreground text-background text-[0.6875rem] tracking-[0.22em] uppercase px-7 py-3 hover:opacity-90 transition-opacity"
-            >
-              Shop the drop
-            </Link>
-            <Link
-              to="/shop?category=hoodie"
-              className="text-[0.6875rem] tracking-[0.22em] uppercase text-foreground border-b border-foreground/60 pb-1"
-            >
-              Hoodies
+            <p className="text-sm leading-relaxed mb-8 text-muted-foreground">
+              Heavyweight essentials in considered earth tones. Built for a permanent wardrobe.
+            </p>
+            <Link to="/shop" className="group inline-flex items-center gap-4">
+              <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-foreground">
+                Discover the collection
+              </span>
+              <span className="h-px w-8 bg-foreground transition-all duration-500 group-hover:w-16" />
             </Link>
           </motion.div>
         </div>
-      </section>
 
-      {/* Category split — straight into product */}
-      <section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/60">
-          {panels.map((panel, i) => (
-            <motion.div
-              key={panel.label}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: i * 0.15 }}
-              className="relative group overflow-hidden bg-background"
-            >
-              <Link to={panel.to} className="block">
-                <div className="relative aspect-[3/4] md:aspect-auto md:h-[80vh] overflow-hidden">
-                  <img
-                    src={panel.image}
-                    alt={panel.label}
-                    width={1200}
-                    height={1600}
-                    className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 text-center">
-                  <p className="text-[0.625rem] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-                    {panel.sub}
-                  </p>
-                  <h2 className="text-foreground text-2xl md:text-3xl font-display font-light tracking-[0.05em] mb-5">
-                    {panel.label}
-                  </h2>
-                  <span className="inline-block text-[0.6875rem] tracking-[0.2em] uppercase text-foreground border-b border-foreground/60 pb-1">
-                    {panel.cta}
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+        {/* Right — editorial image with overlay card */}
+        <div className="col-span-12 lg:col-span-5 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="w-full aspect-[4/5] overflow-hidden bg-secondary"
+          >
+            <img
+              src={heroLifestyle}
+              alt="roinamis Drop 001"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[1500ms]"
+              loading="eager"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="absolute -bottom-6 -left-6 lg:-bottom-8 lg:-left-8 border border-foreground/10 bg-background p-5 lg:p-6"
+          >
+            <p className="text-[10px] uppercase tracking-[0.2em] leading-relaxed text-foreground">
+              Drop 001<br />Limited Release
+            </p>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
