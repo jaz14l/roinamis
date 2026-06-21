@@ -46,7 +46,7 @@ const Navigation = () => {
       <nav className="bg-background/85 backdrop-blur-md border-b border-border/40">
         <div className="max-w-[1600px] mx-auto px-4 md:px-8">
           {/* Desktop layout: 3-column with centered wordmark */}
-          <div className="hidden md:grid grid-cols-3 items-center h-14">
+          <div className="hidden md:grid grid-cols-3 items-center h-20">
             <div className="flex items-center gap-8">
               {leftLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass(link.to)}>
@@ -74,7 +74,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile layout */}
-          <div className="md:hidden flex items-center justify-between h-14">
+          <div className="md:hidden flex items-center justify-between h-20">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground"
