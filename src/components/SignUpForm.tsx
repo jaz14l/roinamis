@@ -65,22 +65,12 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
-            {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-tagline mb-10"
-            >
-              <span className="border-b border-muted-foreground/30 pb-0.5">Join for updates</span>
-            </motion.p>
-
             {/* Form */}
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4"
             >
               <input
@@ -143,17 +133,6 @@ const SignUpForm = () => {
               </motion.button>
             </motion.form>
 
-            {/* Privacy link */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-8"
-            >
-              <a href="/privacy" className="link-subtle">
-                Privacy Policy
-              </a>
-            </motion.p>
           </motion.div>
         ) : (
           <motion.div
@@ -172,14 +151,6 @@ const SignUpForm = () => {
               You're in.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-tagline"
-            >
-              We'll be in touch.
-            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
