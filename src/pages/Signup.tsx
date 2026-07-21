@@ -12,8 +12,8 @@ const Signup = () => {
         <div className="w-full max-w-xl mx-auto text-center">
           <RoinamisMark className="h-16 md:h-20 w-auto opacity-90 mx-auto mb-6" />
 
-          <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground mb-14">
-            Quiet pieces for everyday wear
+          <p className="text-[11px] tracking-[0.35em] text-muted-foreground mb-14">
+            wear the story
           </p>
 
           <SignUpForm />
