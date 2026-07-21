@@ -65,12 +65,21 @@ const SignUpForm = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
+            >
+              Join the list for future updates
+            </motion.p>
+
             {/* Form */}
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-4"
             >
               <input
