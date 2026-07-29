@@ -1,6 +1,10 @@
 const GrainBackground = () => {
   return (
-    <div className="grain-overlay animate-grain" />
+    <>
+      <div className="paper-detail" />
+      <div className="paper-lines" />
+      <div className="grain-overlay animate-grain" />
+    </>
   );
 };
 
