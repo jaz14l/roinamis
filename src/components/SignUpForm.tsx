@@ -40,70 +40,78 @@ const SignUpForm = () => {
     }
 
     // Fire-and-forget Zapier webhook for welcome email
-    supabase.functions.invoke('zapier-webhook', {
+    supabase.functions.invoke("zapier-webhook", {
       body: { email, phone: phone || null },
     }).catch(console.error);
 
     setIsSubmitted(true);
   };
 
-  const validateEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
+  const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   const isValid = validateEmail(email);
 
   return (
-    <div className="relative z-10 w-full max-w-md mx-auto px-6">
+    <div className="relative z-10 mx-auto w-full max-w-sm">
       <AnimatePresence mode="wait">
         {!isSubmitted ? (
           <motion.div
             key="form"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
+            <p
+              id="signup-intro"
+              className="mb-8 text-center text-[11px] uppercase tracking-[0.28em] text-muted-foreground"
             >
               Join the list for future updates
-            </motion.p>
+            </p>
 
-            {/* Form */}
-            <motion.form
-              onSubmit={handleSubmit}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-4"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                className="input-brand"
-                required
-              />
+            <form onSubmit={handleSubmit} className="space-y-4" aria-describedby="signup-intro">
+              <div className="text-left">
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-[10px] uppercase tracking-[0.24em] text-muted-foreground"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="input-brand"
+                  required
+                />
+              </div>
 
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {showPhone && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
+                    className="overflow-hidden text-left"
                   >
+                    <label
+                      htmlFor="phone"
+                      className="mb-2 block pt-1 text-[10px] uppercase tracking-[0.24em] text-muted-foreground"
+                    >
+                      Phone (optional)
+                    </label>
                     <input
+                      id="phone"
+                      name="phone"
                       type="tel"
+                      autoComplete="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Phone (optional)"
+                      placeholder="(555) 000 0000"
                       className="input-brand"
                     />
                   </motion.div>
@@ -111,55 +119,40 @@ const SignUpForm = () => {
               </AnimatePresence>
 
               {!showPhone && (
-                <motion.button
-                  type="button"
-                  onClick={() => setShowPhone(true)}
-                  className="text-tagline hover:text-foreground transition-colors duration-300 py-2"
-                  whileTap={{ scale: 0.98 }}
-                >
-                  + <span className="border-b border-muted-foreground/30 pb-0.5">Add phone for SMS</span>
-                </motion.button>
+                <div className="text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowPhone(true)}
+                    className="link-subtle border-b border-border pb-0.5 uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  >
+                    Add phone for SMS
+                  </button>
+                </div>
               )}
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={!isValid || isSubmitting}
-                className="btn-brand mt-6"
-                whileTap={{ scale: 0.98 }}
+                className="btn-brand !mt-8"
               >
-                {isSubmitting ? (
-                  <span className="inline-flex items-center gap-2">
-                    <motion.span
-                      animate={{ opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      Joining
-                    </motion.span>
-                  </span>
-                ) : (
-                  "Stay Close"
-                )}
-              </motion.button>
-            </motion.form>
-
+                {isSubmitting ? "Joining" : "Stay Close"}
+              </button>
+            </form>
           </motion.div>
         ) : (
           <motion.div
             key="success"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
+            role="status"
+            aria-live="polite"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-foreground text-lg tracking-wide mb-4"
-            >
-              You're in.
-            </motion.p>
-
+            <p className="text-lg tracking-wide text-foreground">You're in.</p>
+            <p className="mt-3 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+              We'll be in touch before the first drop
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
