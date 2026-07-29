@@ -1,4 +1,4 @@
-import waveAsset from "@/assets/roinamis-wave.png.asset.json";
+import waveMark from "@/assets/roinamis-wave-mark.png";
 
 interface RoinamisMarkProps {
   className?: string;
