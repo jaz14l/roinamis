@@ -146,15 +146,17 @@
   }
 
   .input-brand {
-    @apply w-full bg-input border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300;
+    @apply w-full bg-input border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground transition-colors duration-300;
+    @apply focus:outline-none focus:border-foreground focus-visible:ring-1 focus-visible:ring-ring;
     font-size: 0.9375rem;
     letter-spacing: 0.02em;
   }
 
   .btn-brand {
-    @apply w-full bg-primary text-primary-foreground px-6 py-3.5 font-medium tracking-wide transition-opacity duration-300;
-    font-size: 0.875rem;
-    letter-spacing: 0.08em;
+    @apply w-full bg-primary text-primary-foreground px-6 py-4 font-medium tracking-wide transition-opacity duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
@@ -163,8 +165,9 @@
   }
 
   .btn-brand:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply opacity-40 cursor-not-allowed;
   }
+
 
   .text-tagline {
     @apply text-muted-foreground tracking-widest uppercase;
