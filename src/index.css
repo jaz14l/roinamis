@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* roinamis logo-inspired palette — warm cream with brown→gold arc gradient */
-    --background: 38 30% 94%;
-    --foreground: 22 35% 14%;
+    /* roinamis mark palette — pure ink black + soft paper white */
+    --background: 0 0% 4%;
+    --foreground: 40 12% 94%;
 
-    --card: 38 25% 97%;
-    --card-foreground: 22 35% 14%;
+    --card: 0 0% 7%;
+    --card-foreground: 40 12% 94%;
 
-    --popover: 38 25% 97%;
-    --popover-foreground: 22 35% 14%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 12% 94%;
 
-    --primary: 22 35% 14%;
-    --primary-foreground: 38 30% 94%;
+    --primary: 40 12% 94%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 36 22% 88%;
-    --secondary-foreground: 22 35% 18%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 40 12% 94%;
 
-    --muted: 36 18% 84%;
-    --muted-foreground: 25 18% 38%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 36 8% 66%;
 
-    --accent: 32 55% 55%;
-    --accent-foreground: 22 35% 14%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 40 12% 94%;
 
     --destructive: 0 62% 45%;
-    --destructive-foreground: 38 30% 94%;
+    --destructive-foreground: 40 12% 94%;
 
-    --border: 32 18% 78%;
-    --input: 36 22% 90%;
-    --ring: 32 45% 45%;
+    --border: 0 0% 20%;
+    --input: 0 0% 9%;
+    --ring: 40 12% 82%;
 
     --radius: 0.125rem;
 
-    /* Custom brand tokens — drawn from the logo arcs (outer→inner) */
-    --arc-1: 22 55% 18%;
-    --arc-2: 20 50% 32%;
-    --arc-3: 24 55% 45%;
-    --arc-4: 30 60% 56%;
-    --arc-5: 36 65% 65%;
+    /* Custom brand tokens */
+    --arc-1: 0 0% 4%;
+    --arc-2: 0 0% 20%;
+    --arc-3: 0 0% 44%;
+    --arc-4: 0 0% 70%;
+    --arc-5: 40 12% 94%;
 
-    --stone: 28 12% 50%;
-    --cream: 38 35% 96%;
-    --clay: 20 50% 32%;
-    --gold: 36 65% 60%;
+    --stone: 0 0% 45%;
+    --cream: 40 12% 94%;
+    --clay: 0 0% 20%;
+    --gold: 40 10% 80%;
 
-    --grain-opacity: 0.06;
+    --grain-opacity: 0.05;
+
     --gradient-arc: linear-gradient(
       90deg,
       hsl(var(--arc-1)) 0%,
@@ -60,49 +61,50 @@
     );
     --gradient-subtle: linear-gradient(
       180deg,
-      hsl(38 30% 95%) 0%,
-      hsl(36 25% 92%) 100%
+      hsl(0 0% 6%) 0%,
+      hsl(0 0% 3%) 100%
     );
 
-    --sidebar-background: 38 30% 94%;
-    --sidebar-foreground: 22 35% 14%;
-    --sidebar-primary: 22 35% 14%;
-    --sidebar-primary-foreground: 38 30% 94%;
-    --sidebar-accent: 36 22% 88%;
-    --sidebar-accent-foreground: 22 35% 14%;
-    --sidebar-border: 32 18% 78%;
-    --sidebar-ring: 32 45% 45%;
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 40 12% 94%;
+    --sidebar-primary: 40 12% 94%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 11%;
+    --sidebar-accent-foreground: 40 12% 94%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 40 12% 82%;
   }
 
   .dark {
-    --background: 38 30% 94%;
-    --foreground: 22 35% 14%;
-    --card: 38 25% 97%;
-    --card-foreground: 22 35% 14%;
-    --popover: 38 25% 97%;
-    --popover-foreground: 22 35% 14%;
-    --primary: 22 35% 14%;
-    --primary-foreground: 38 30% 94%;
-    --secondary: 36 22% 88%;
-    --secondary-foreground: 22 35% 18%;
-    --muted: 36 18% 84%;
-    --muted-foreground: 25 18% 38%;
-    --accent: 32 55% 55%;
-    --accent-foreground: 22 35% 14%;
+    --background: 0 0% 4%;
+    --foreground: 40 12% 94%;
+    --card: 0 0% 7%;
+    --card-foreground: 40 12% 94%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 12% 94%;
+    --primary: 40 12% 94%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 40 12% 94%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 36 8% 66%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 40 12% 94%;
     --destructive: 0 62% 45%;
-    --destructive-foreground: 38 30% 94%;
-    --border: 32 18% 78%;
-    --input: 36 22% 90%;
-    --ring: 32 45% 45%;
-    --sidebar-background: 38 30% 94%;
-    --sidebar-foreground: 22 35% 14%;
-    --sidebar-primary: 22 35% 14%;
-    --sidebar-primary-foreground: 38 30% 94%;
-    --sidebar-accent: 36 22% 88%;
-    --sidebar-accent-foreground: 22 35% 14%;
-    --sidebar-border: 32 18% 78%;
-    --sidebar-ring: 32 45% 45%;
+    --destructive-foreground: 40 12% 94%;
+    --border: 0 0% 20%;
+    --input: 0 0% 9%;
+    --ring: 40 12% 82%;
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 40 12% 94%;
+    --sidebar-primary: 40 12% 94%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 11%;
+    --sidebar-accent-foreground: 40 12% 94%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 40 12% 82%;
   }
+
 }
 
 @layer base {
@@ -127,9 +129,9 @@
     inset: 0;
     pointer-events: none;
     z-index: 10;
-    opacity: 0.06;
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
+    mix-blend-mode: screen;
   }
 
   .gradient-bg {
@@ -144,15 +146,17 @@
   }
 
   .input-brand {
-    @apply w-full bg-input border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300;
+    @apply w-full bg-input border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground transition-colors duration-300;
+    @apply focus:outline-none focus:border-foreground focus-visible:ring-1 focus-visible:ring-ring;
     font-size: 0.9375rem;
     letter-spacing: 0.02em;
   }
 
   .btn-brand {
-    @apply w-full bg-primary text-primary-foreground px-6 py-3.5 font-medium tracking-wide transition-opacity duration-300;
-    font-size: 0.875rem;
-    letter-spacing: 0.08em;
+    @apply w-full bg-primary text-primary-foreground px-6 py-4 font-medium tracking-wide transition-opacity duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
@@ -161,8 +165,9 @@
   }
 
   .btn-brand:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply opacity-40 cursor-not-allowed;
   }
+
 
   .text-tagline {
     @apply text-muted-foreground tracking-widest uppercase;
