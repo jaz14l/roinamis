@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* roinamis logo-inspired palette — warm cream with brown→gold arc gradient */
-    --background: 38 30% 94%;
-    --foreground: 22 35% 14%;
+    /* roinamis mark palette — pure ink black + soft paper white */
+    --background: 0 0% 4%;
+    --foreground: 40 12% 94%;
 
-    --card: 38 25% 97%;
-    --card-foreground: 22 35% 14%;
+    --card: 0 0% 7%;
+    --card-foreground: 40 12% 94%;
 
-    --popover: 38 25% 97%;
-    --popover-foreground: 22 35% 14%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 12% 94%;
 
-    --primary: 22 35% 14%;
-    --primary-foreground: 38 30% 94%;
+    --primary: 40 12% 94%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 36 22% 88%;
-    --secondary-foreground: 22 35% 18%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 40 12% 94%;
 
-    --muted: 36 18% 84%;
-    --muted-foreground: 25 18% 38%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 36 8% 66%;
 
-    --accent: 32 55% 55%;
-    --accent-foreground: 22 35% 14%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 40 12% 94%;
 
     --destructive: 0 62% 45%;
-    --destructive-foreground: 38 30% 94%;
+    --destructive-foreground: 40 12% 94%;
 
-    --border: 32 18% 78%;
-    --input: 36 22% 90%;
-    --ring: 32 45% 45%;
+    --border: 0 0% 20%;
+    --input: 0 0% 9%;
+    --ring: 40 12% 82%;
 
     --radius: 0.125rem;
 
-    /* Custom brand tokens — drawn from the logo arcs (outer→inner) */
-    --arc-1: 22 55% 18%;
-    --arc-2: 20 50% 32%;
-    --arc-3: 24 55% 45%;
-    --arc-4: 30 60% 56%;
-    --arc-5: 36 65% 65%;
+    /* Custom brand tokens */
+    --arc-1: 0 0% 4%;
+    --arc-2: 0 0% 20%;
+    --arc-3: 0 0% 44%;
+    --arc-4: 0 0% 70%;
+    --arc-5: 40 12% 94%;
 
-    --stone: 28 12% 50%;
-    --cream: 38 35% 96%;
-    --clay: 20 50% 32%;
-    --gold: 36 65% 60%;
+    --stone: 0 0% 45%;
+    --cream: 40 12% 94%;
+    --clay: 0 0% 20%;
+    --gold: 40 10% 80%;
 
-    --grain-opacity: 0.06;
+    --grain-opacity: 0.05;
+
     --gradient-arc: linear-gradient(
       90deg,
       hsl(var(--arc-1)) 0%,
