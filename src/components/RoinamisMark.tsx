@@ -1,4 +1,4 @@
-import waveSymbol from "@/assets/symbol_06_wave.png";
+import waveAsset from "@/assets/roinamis-wave.png.asset.json";
 
 interface RoinamisMarkProps {
   className?: string;
@@ -7,13 +7,13 @@ interface RoinamisMarkProps {
 }
 
 /**
- * The roinamis wave mark — rendered as the chosen symbol image.
- * Sized via className (height); width is auto.
+ * The official roinamis wave mark. Rendered untouched: no crop, recolor or overlay.
+ * Sized via className.
  */
 const RoinamisMark = ({ className }: RoinamisMarkProps) => {
   return (
     <img
-      src={waveSymbol}
+      src={waveAsset.url}
       alt="roinamis"
       className={className}
       draggable={false}
