@@ -13,7 +13,7 @@ interface RoinamisMarkProps {
 const RoinamisMark = ({ className }: RoinamisMarkProps) => {
   return (
     <img
-      src={waveAsset.url}
+      src={waveMark}
       alt="roinamis"
       className={className}
       draggable={false}
