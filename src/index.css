@@ -175,27 +175,44 @@
   }
 
   .input-brand {
-    @apply w-full bg-input border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground transition-colors duration-300;
-    @apply focus:outline-none focus:border-foreground focus-visible:ring-1 focus-visible:ring-ring;
-    font-size: 0.9375rem;
+    @apply w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground placeholder:text-muted-foreground/70 transition-colors duration-300 rounded-none;
+    @apply focus:outline-none focus:border-foreground focus-visible:ring-0;
+    min-height: 48px;
+    font-size: 1rem;
     letter-spacing: 0.02em;
   }
 
+  .input-brand:focus-visible {
+    box-shadow: 0 1px 0 0 hsl(var(--foreground));
+  }
+
   .btn-brand {
-    @apply w-full bg-primary text-primary-foreground px-6 py-4 font-medium tracking-wide transition-opacity duration-300;
-    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-    font-size: 0.8125rem;
-    letter-spacing: 0.14em;
+    @apply w-full bg-primary text-primary-foreground px-6 font-medium transition-colors duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    min-height: 52px;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 
-  .btn-brand:hover {
-    @apply opacity-90;
+  .btn-brand:hover:not(:disabled) {
+    background-color: hsl(var(--clay));
   }
 
   .btn-brand:disabled {
-    @apply opacity-40 cursor-not-allowed;
+    @apply opacity-35 cursor-not-allowed;
   }
+
+  .nav-link {
+    @apply inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    min-height: 44px;
+    padding-inline: 0.125rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: lowercase;
+  }
+
 
 
   .text-tagline {
