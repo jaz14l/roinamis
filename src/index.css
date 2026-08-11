@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* roinamis mark palette — pure ink black + soft paper white */
-    --background: 40 20% 98%;
-    --foreground: 0 0% 8%;
+    /* roinamis — warm white, cream, beige, espresso */
+    --background: 40 33% 97%;
+    --foreground: 25 30% 15%;
 
-    --card: 40 20% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 40 33% 99%;
+    --card-foreground: 25 30% 15%;
 
-    --popover: 40 20% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 40 33% 99%;
+    --popover-foreground: 25 30% 15%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 40 20% 98%;
+    --primary: 25 32% 17%;
+    --primary-foreground: 40 33% 97%;
 
-    --secondary: 40 14% 94%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 38 24% 92%;
+    --secondary-foreground: 25 30% 15%;
 
-    --muted: 40 14% 93%;
-    --muted-foreground: 0 0% 42%;
+    --muted: 36 20% 90%;
+    --muted-foreground: 28 14% 38%;
 
-    --accent: 40 14% 90%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 36 24% 87%;
+    --accent-foreground: 25 30% 15%;
 
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 40 20% 98%;
+    --destructive: 8 55% 40%;
+    --destructive-foreground: 40 33% 97%;
 
-    --border: 30 10% 84%;
-    --input: 40 20% 100%;
-    --ring: 0 0% 20%;
+    --border: 32 18% 82%;
+    --input: 40 33% 99%;
+    --ring: 25 30% 25%;
 
     --radius: 0.125rem;
 
     /* Custom brand tokens */
-    --arc-1: 0 0% 8%;
-    --arc-2: 0 0% 30%;
-    --arc-3: 0 0% 55%;
-    --arc-4: 30 10% 80%;
-    --arc-5: 40 20% 98%;
+    --arc-1: 25 32% 17%;
+    --arc-2: 26 24% 32%;
+    --arc-3: 30 20% 52%;
+    --arc-4: 36 24% 76%;
+    --arc-5: 40 33% 95%;
 
-    --stone: 0 0% 45%;
-    --cream: 40 12% 94%;
-    --clay: 0 0% 20%;
-    --gold: 40 10% 80%;
+    --stone: 30 12% 50%;
+    --cream: 38 30% 93%;
+    --clay: 22 26% 28%;
+    --gold: 38 34% 68%;
 
     --grain-opacity: 0.05;
+
 
     --gradient-arc: linear-gradient(
       90deg,
