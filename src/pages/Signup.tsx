@@ -32,8 +32,11 @@ const Signup = () => {
       <main className="relative z-20 flex flex-1 items-center px-5 py-16 sm:px-8 sm:py-24">
         <div className="mx-auto w-full max-w-md">
           <div className="flex justify-center">
-            <RoinamisMark className="h-24 w-24 sm:h-32 sm:w-32" />
+            <div className="h-24 w-24 overflow-hidden rounded-full sm:h-32 sm:w-32">
+              <RoinamisMark className="h-full w-full scale-[1.02]" />
+            </div>
           </div>
+
 
           <h1 className="mt-10 text-center text-[12px] font-normal uppercase tracking-[0.46em] text-foreground sm:mt-12 sm:text-[13px]">
             wear the story
