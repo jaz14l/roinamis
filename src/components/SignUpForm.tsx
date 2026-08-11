@@ -63,10 +63,11 @@ const SignUpForm = () => {
           >
             <p
               id="signup-intro"
-              className="mb-8 text-center text-[11px] uppercase tracking-[0.28em] text-muted-foreground"
+              className="mb-8 text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
             >
-              Join the list for future updates
+              Join the list
             </p>
+
 
             <form onSubmit={handleSubmit} className="space-y-4" aria-describedby="signup-intro">
               <div className="text-left">
