@@ -63,10 +63,11 @@ const SignUpForm = () => {
           >
             <p
               id="signup-intro"
-              className="mb-8 text-center text-[11px] uppercase tracking-[0.28em] text-muted-foreground"
+              className="mb-8 text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
             >
-              Join the list for future updates
+              Join the list
             </p>
+
 
             <form onSubmit={handleSubmit} className="space-y-4" aria-describedby="signup-intro">
               <div className="text-left">
@@ -123,12 +124,13 @@ const SignUpForm = () => {
                   <button
                     type="button"
                     onClick={() => setShowPhone(true)}
-                    className="link-subtle border-b border-border pb-0.5 uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                    className="link-subtle inline-flex min-h-[44px] items-center border-b border-border uppercase tracking-[0.22em] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     Add phone for SMS
                   </button>
                 </div>
               )}
+
 
               <button
                 type="submit"

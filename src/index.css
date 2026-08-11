@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* roinamis mark palette — pure ink black + soft paper white */
-    --background: 40 20% 98%;
-    --foreground: 0 0% 8%;
+    /* roinamis — warm white, cream, beige, espresso */
+    --background: 40 33% 97%;
+    --foreground: 25 30% 15%;
 
-    --card: 40 20% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 40 33% 99%;
+    --card-foreground: 25 30% 15%;
 
-    --popover: 40 20% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 40 33% 99%;
+    --popover-foreground: 25 30% 15%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 40 20% 98%;
+    --primary: 25 32% 17%;
+    --primary-foreground: 40 33% 97%;
 
-    --secondary: 40 14% 94%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 38 24% 92%;
+    --secondary-foreground: 25 30% 15%;
 
-    --muted: 40 14% 93%;
-    --muted-foreground: 0 0% 42%;
+    --muted: 36 20% 90%;
+    --muted-foreground: 28 14% 38%;
 
-    --accent: 40 14% 90%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 36 24% 87%;
+    --accent-foreground: 25 30% 15%;
 
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 40 20% 98%;
+    --destructive: 8 55% 40%;
+    --destructive-foreground: 40 33% 97%;
 
-    --border: 30 10% 84%;
-    --input: 40 20% 100%;
-    --ring: 0 0% 20%;
+    --border: 32 18% 82%;
+    --input: 40 33% 99%;
+    --ring: 25 30% 25%;
 
     --radius: 0.125rem;
 
     /* Custom brand tokens */
-    --arc-1: 0 0% 8%;
-    --arc-2: 0 0% 30%;
-    --arc-3: 0 0% 55%;
-    --arc-4: 30 10% 80%;
-    --arc-5: 40 20% 98%;
+    --arc-1: 25 32% 17%;
+    --arc-2: 26 24% 32%;
+    --arc-3: 30 20% 52%;
+    --arc-4: 36 24% 76%;
+    --arc-5: 40 33% 95%;
 
-    --stone: 0 0% 45%;
-    --cream: 40 12% 94%;
-    --clay: 0 0% 20%;
-    --gold: 40 10% 80%;
+    --stone: 30 12% 50%;
+    --cream: 38 30% 93%;
+    --clay: 22 26% 28%;
+    --gold: 38 34% 68%;
 
     --grain-opacity: 0.05;
+
 
     --gradient-arc: linear-gradient(
       90deg,
@@ -140,9 +141,9 @@
     pointer-events: none;
     z-index: 0;
     background:
-      radial-gradient(circle at 50% 18%, hsl(38 24% 92% / 0.9) 0%, transparent 58%),
-      radial-gradient(circle at 12% 88%, hsl(34 20% 90% / 0.7) 0%, transparent 52%),
-      radial-gradient(circle at 88% 78%, hsl(40 18% 91% / 0.65) 0%, transparent 50%);
+      radial-gradient(circle at 50% 14%, hsl(38 34% 91% / 0.95) 0%, transparent 60%),
+      radial-gradient(circle at 10% 90%, hsl(30 26% 88% / 0.75) 0%, transparent 54%),
+      radial-gradient(circle at 90% 80%, hsl(36 28% 89% / 0.7) 0%, transparent 52%);
   }
 
   .paper-lines {
@@ -174,27 +175,44 @@
   }
 
   .input-brand {
-    @apply w-full bg-input border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground transition-colors duration-300;
-    @apply focus:outline-none focus:border-foreground focus-visible:ring-1 focus-visible:ring-ring;
-    font-size: 0.9375rem;
+    @apply w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground placeholder:text-muted-foreground/70 transition-colors duration-300 rounded-none;
+    @apply focus:outline-none focus:border-foreground focus-visible:ring-0;
+    min-height: 48px;
+    font-size: 1rem;
     letter-spacing: 0.02em;
   }
 
+  .input-brand:focus-visible {
+    box-shadow: 0 1px 0 0 hsl(var(--foreground));
+  }
+
   .btn-brand {
-    @apply w-full bg-primary text-primary-foreground px-6 py-4 font-medium tracking-wide transition-opacity duration-300;
-    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-    font-size: 0.8125rem;
-    letter-spacing: 0.14em;
+    @apply w-full bg-primary text-primary-foreground px-6 font-medium transition-colors duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    min-height: 52px;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 
-  .btn-brand:hover {
-    @apply opacity-90;
+  .btn-brand:hover:not(:disabled) {
+    background-color: hsl(var(--clay));
   }
 
   .btn-brand:disabled {
-    @apply opacity-40 cursor-not-allowed;
+    @apply opacity-35 cursor-not-allowed;
   }
+
+  .nav-link {
+    @apply inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    min-height: 44px;
+    padding-inline: 0.125rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: lowercase;
+  }
+
 
 
   .text-tagline {
