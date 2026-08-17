@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Privacy from "./pages/Privacy";
-import Lookbook from "./pages/Lookbook";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +16,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/lookbook" element={<Lookbook />} />
           <Route path="*" element={<Signup />} />
         </Routes>
       </BrowserRouter>
