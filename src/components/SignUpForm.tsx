@@ -39,10 +39,15 @@ const SignUpForm = () => {
       return;
     }
 
-    // Fire-and-forget Zapier webhook for welcome email
+    // Fire-and-forget: branded welcome email + Zapier webhook
+    supabase.functions.invoke("send-welcome-email", {
+      body: { email },
+    }).catch(console.error);
+
     supabase.functions.invoke("zapier-webhook", {
       body: { email, phone: phone || null },
     }).catch(console.error);
+
 
     setIsSubmitted(true);
   };
