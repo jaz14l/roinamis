@@ -107,7 +107,7 @@ const SignUpForm = () => {
         >
           {error ??
             (isSubmitted
-              ? "You're on the list. We'll be in touch before the first drop."
+              ? "You're on the list. We'll be in touch."
               : "By joining, you agree to receive roinamis updates. Unsubscribe any time.")}
           {!error && !isSubmitted && (
             <>
