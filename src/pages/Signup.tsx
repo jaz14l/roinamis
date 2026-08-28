@@ -59,8 +59,7 @@ const Signup = () => {
       <section className="signup-field" aria-labelledby="signup-heading">
         <div className="copy-block">
           <p className="eyebrow">Studio note</p>
-          <h1 id="signup-heading">Be seen.</h1>
-          <p className="supporting-line">with purpose.</p>
+          <h1 id="signup-heading">loading...</h1>
         </div>
 
         <SignUpForm />
