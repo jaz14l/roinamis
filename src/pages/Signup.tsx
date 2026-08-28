@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Instagram, Music2 } from "lucide-react";
 import SignUpForm from "@/components/SignUpForm";
-import waveAsset from "@/assets/roinamis-wave-line.png.asset.json";
+import waveMark from "@/assets/roinamis-wave-line.png";
 
 const Signup = () => {
   const rootRef = useRef<HTMLElement>(null);
@@ -52,7 +52,7 @@ const Signup = () => {
 
       <section className="mark-stage" aria-label="roinamis brand mark">
         <div className="logo-window">
-          <img className="logo-mark" src={waveAsset.url} alt="roinamis wave logo" draggable={false} />
+          <img className="logo-mark" src={waveMark} alt="roinamis wave logo" draggable={false} />
         </div>
       </section>
 
