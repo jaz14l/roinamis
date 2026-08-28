@@ -33,8 +33,8 @@ const Email = () => (
         <Heading style={h1}>welcome in.</Heading>
 
         <Text style={text}>
-          Thanks for joining the list. roinamis is built around pieces made to last,
-          with attention to materials, proportion, and the details that hold up over time.
+          Thanks for joining the list. roinamis is a brand built to have lasting detail
+          and impact that hold up over time.
         </Text>
 
         <Text style={text}>
@@ -50,6 +50,10 @@ const Email = () => (
         <Text style={footer}>
           <span>founded 2022 · roinamis</span>
           <span style={footerSign}>wear the story</span>
+        </Text>
+
+        <Text style={noReply}>
+          Please do not reply to this email. For questions, reach out to roinamis directly.
         </Text>
       </Container>
     </Body>
@@ -142,4 +146,13 @@ const footer = {
 
 const footerSign = {
   float: 'right' as const,
+}
+
+const noReply = {
+  margin: '24px 0 0',
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '9px',
+  letterSpacing: '0.05em',
+  textTransform: 'lowercase' as const,
+  color: 'rgba(10,10,10,0.42)',
 }
