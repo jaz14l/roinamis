@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -58,78 +59,107 @@ const SignUpForm = () => {
   const buttonState = isSubmitting ? "loading" : isSubmitted ? "success" : "idle";
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="signup-form">
-      <label className="email-label" htmlFor="email">
-        <span>Email address</span>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            if (error) setError(null);
-          }}
-          placeholder="you@example.com"
-          autoComplete="email"
-          disabled={isSubmitting || isSubmitted}
-          aria-describedby="form-note"
-        />
-      </label>
+    <div className="form-stage">
+      <AnimatePresence mode="wait" initial={false}>
+        {!isSubmitted ? (
+          <motion.form
+            key="signup-form"
+            onSubmit={handleSubmit}
+            noValidate
+            className="signup-form"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
+          >
+            <label className="email-label" htmlFor="email">
+              <span>Email address</span>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (error) setError(null);
+                }}
+                placeholder="you@example.com"
+                autoComplete="email"
+                disabled={isSubmitting || isSubmitted}
+                aria-describedby="form-note"
+              />
+            </label>
 
-      {showPhone && (
-        <label className="email-label phone-label" htmlFor="phone">
-          <span>Phone (optional)</span>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="(555) 000 0000"
-            autoComplete="tel"
-            disabled={isSubmitting || isSubmitted}
-          />
-        </label>
-      )}
+            {showPhone && (
+              <label className="email-label phone-label" htmlFor="phone">
+                <span>Phone (optional)</span>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="(555) 000 0000"
+                  autoComplete="tel"
+                  disabled={isSubmitting || isSubmitted}
+                />
+              </label>
+            )}
 
-      {!showPhone && !isSubmitted && (
-        <button type="button" className="phone-toggle" onClick={() => setShowPhone(true)}>
-          Add phone for SMS
-        </button>
-      )}
+            {!showPhone && !isSubmitted && (
+              <button type="button" className="phone-toggle" onClick={() => setShowPhone(true)}>
+                Add phone for SMS
+              </button>
+            )}
 
-      <div className="form-lower">
-        <p
-          id="form-note"
-          className={`consent-copy ${error ? "has-error" : ""}`}
-          aria-live="polite"
-        >
-          {error ??
-            (isSubmitted
-              ? "You're on the list. We'll be in touch."
-              : "By joining, you agree to receive roinamis updates. Unsubscribe any time.")}
-          {!error && !isSubmitted && (
-            <>
-              {" "}
-              <Link to="/privacy" className="consent-link">
-                Privacy
-              </Link>
-            </>
-          )}
-        </p>
-        <button
-          className={`signup-button ${buttonState}`}
-          type="submit"
-          disabled={isSubmitting || isSubmitted}
-        >
-          <span className="button-copy" aria-live="polite">
-            {isSubmitting ? "Sending" : isSubmitted ? "You're on the list" : "Receive the note"}
-          </span>
-          <span className="button-mark" aria-hidden="true" />
-        </button>
-      </div>
-    </form>
+            <div className="form-lower">
+              <p
+                id="form-note"
+                className={`consent-copy ${error ? "has-error" : ""}`}
+                aria-live="polite"
+              >
+                {error ??
+                  (isSubmitted
+                    ? "You're on the list. We'll be in touch."
+                    : "By joining, you agree to receive roinamis updates. Unsubscribe any time.")}
+                {!error && !isSubmitted && (
+                  <>
+                    {" "}
+                    <Link to="/privacy" className="consent-link">
+                      Privacy
+                    </Link>
+                  </>
+                )}
+              </p>
+              <button
+                className={`signup-button ${buttonState}`}
+                type="submit"
+                disabled={isSubmitting || isSubmitted}
+              >
+                <span className="button-copy" aria-live="polite">
+                  {isSubmitting ? "Sending" : isSubmitted ? "You're on the list" : "Receive the note"}
+                </span>
+                <span className="button-mark" aria-hidden="true" />
+              </button>
+            </div>
+          </motion.form>
+        ) : (
+          <motion.div
+            key="signup-success"
+            className="signup-success"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.23, 1, 0.32, 1] }}
+            role="status"
+            aria-live="polite"
+          >
+            <h2>you're locked in.</h2>
+            <p>We'll be in touch.</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
