@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Instagram, Music2 } from "lucide-react";
 import SignUpForm from "@/components/SignUpForm";
 import waveMark from "@/assets/roinamis-wave-line.png";
@@ -6,6 +6,8 @@ import waveMark from "@/assets/roinamis-wave-line.png";
 const Signup = () => {
   const rootRef = useRef<HTMLElement>(null);
   const readyRef = useRef(false);
+  const [bufferTick, setBufferTick] = useState(0);
+  const [hoverHeading, setHoverHeading] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -14,6 +16,14 @@ const Signup = () => {
     });
     return () => cancelAnimationFrame(frame);
   }, []);
+
+  useEffect(() => {
+    const speed = hoverHeading ? 120 : 380;
+    const interval = setInterval(() => {
+      setBufferTick((t) => (t + 1) % 4);
+    }, speed);
+    return () => clearInterval(interval);
+  }, [hoverHeading]);
 
   const respondToPointer = (event: React.PointerEvent<HTMLElement>) => {
     const root = rootRef.current;
