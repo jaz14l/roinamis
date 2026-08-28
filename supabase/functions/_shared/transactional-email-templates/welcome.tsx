@@ -63,7 +63,7 @@ const Email = () => (
         </Text>
 
         <Text style={noReply}>
-          Please do not reply to this email. For questions, reach out to roinamis directly.
+          Please do not reply to this email. For questions, contact us at roinamis@gmail.com.
         </Text>
 
         <Section style={socialRow}>
