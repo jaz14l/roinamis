@@ -51,6 +51,10 @@ const Email = () => (
           <span>founded 2022 · roinamis</span>
           <span style={footerSign}>wear the story</span>
         </Text>
+
+        <Text style={noReply}>
+          Please do not reply to this email. For questions, reach out to roinamis directly.
+        </Text>
       </Container>
     </Body>
   </Html>
