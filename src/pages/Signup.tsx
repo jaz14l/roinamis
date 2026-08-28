@@ -111,7 +111,7 @@ const Signup = () => {
             <Music2 size={14} strokeWidth={1.25} aria-hidden="true" />
           </a>
         </div>
-        <span>Made with intention</span>
+        <span>i am more than they see</span>
       </footer>
     </main>
   );
