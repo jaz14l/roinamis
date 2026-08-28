@@ -267,3 +267,351 @@
     transform: translateY(0);
   }
 }
+
+/* ---------- roinamis signup page (Manus "Quiet Signal" layout) ---------- */
+.roinamis-page {
+  --pointer-x: 0;
+  --pointer-y: 0;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  grid-template-rows: auto 1fr auto;
+  background: #e9e7e0;
+  color: #0a0a0a;
+  padding: 1.25rem;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.roinamis-page .paper-grain {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  opacity: 0.26;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.roinamis-page .page-veil {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background: #0a0a0a;
+  transform-origin: top;
+  transition: transform 900ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.roinamis-page.is-ready .page-veil { transform: scaleY(0); }
+
+.roinamis-page .page-meta,
+.roinamis-page .page-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.53rem;
+  line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: 0.15em;
+  color: rgb(10 10 10 / 0.52);
+}
+
+.roinamis-page .page-footer {
+  align-self: end;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(10 10 10 / 0.16);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 480ms cubic-bezier(0.23, 1, 0.32, 1) 780ms,
+    transform 480ms cubic-bezier(0.23, 1, 0.32, 1) 780ms;
+}
+
+.roinamis-page.is-ready .page-footer { opacity: 1; transform: translateY(0); }
+
+.roinamis-page .social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin: -0.35rem auto;
+}
+
+.roinamis-page .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  color: rgb(10 10 10 / 0.6);
+  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.roinamis-page .social-link:hover { opacity: 0.55; transform: translateY(-2px) scale(1.04); }
+.roinamis-page .social-link:focus-visible { outline: 1px solid #0a0a0a; outline-offset: 3px; }
+
+.roinamis-page .mark-stage {
+  position: absolute;
+  top: 15%;
+  right: -11%;
+  left: -5%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.roinamis-page .logo-window {
+  width: min(117vw, 108rem);
+  overflow: hidden;
+  transform: translate3d(calc(var(--pointer-x) * 30px), calc(var(--pointer-y) * 17px), 0)
+    rotate(calc(var(--pointer-x) * 0.32deg));
+  transition: transform 680ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.roinamis-page .logo-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  transform-origin: center center;
+  will-change: opacity, transform;
+  transition: opacity 900ms cubic-bezier(0.23, 1, 0.32, 1) 210ms,
+    transform 1350ms cubic-bezier(0.23, 1, 0.32, 1) 160ms;
+}
+
+.roinamis-page.is-ready .logo-mark { opacity: 1; transform: translateY(0) scale(1); }
+
+.roinamis-page .signup-field {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  width: min(100%, 22rem);
+  margin: 0 0 2.6rem;
+}
+
+.roinamis-page .copy-block {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms cubic-bezier(0.23, 1, 0.32, 1) 500ms,
+    transform 520ms cubic-bezier(0.23, 1, 0.32, 1) 500ms;
+}
+
+.roinamis-page.is-ready .copy-block { opacity: 1; transform: translateY(0); }
+
+.roinamis-page .eyebrow {
+  margin: 0 0 0.72rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(10 10 10 / 0.54);
+}
+
+.roinamis-page h1 {
+  margin: 0;
+  font-family: "Archivo Black", Arial Black, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+}
+
+.roinamis-page .supporting-line {
+  max-width: 16.5rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgb(10 10 10 / 0.65);
+}
+
+.roinamis-page .signup-form {
+  margin-top: 1.85rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms cubic-bezier(0.23, 1, 0.32, 1) 640ms,
+    transform 520ms cubic-bezier(0.23, 1, 0.32, 1) 640ms;
+}
+
+.roinamis-page.is-ready .signup-form { opacity: 1; transform: translateY(0); }
+
+.roinamis-page .email-label {
+  display: block;
+  border-bottom: 1px solid rgb(10 10 10 / 0.5);
+  transition: border-color 220ms ease-out;
+}
+
+.roinamis-page .phone-label { margin-top: 1rem; }
+
+.roinamis-page .email-label:focus-within { border-color: #0a0a0a; }
+
+.roinamis-page .email-label span {
+  display: block;
+  padding-bottom: 0.28rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.53rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgb(10 10 10 / 0.5);
+}
+
+.roinamis-page .email-label input {
+  width: 100%;
+  height: 2.58rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: "DM Mono", monospace;
+  font-size: 0.76rem;
+  color: #0a0a0a;
+}
+
+.roinamis-page .email-label input::placeholder { color: rgb(10 10 10 / 0.34); }
+
+.roinamis-page .phone-toggle {
+  margin-top: 0.75rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgb(10 10 10 / 0.3);
+  background: transparent;
+  color: rgb(10 10 10 / 0.5);
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 0.51rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.roinamis-page .phone-toggle:hover { color: #0a0a0a; border-color: #0a0a0a; }
+.roinamis-page .phone-toggle:focus-visible { outline: 1px solid #0a0a0a; outline-offset: 3px; }
+
+.roinamis-page .form-lower {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.72rem;
+}
+
+.roinamis-page .consent-copy {
+  max-width: 14rem;
+  min-height: 2.1em;
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.51rem;
+  line-height: 1.55;
+  letter-spacing: 0.025em;
+  color: rgb(10 10 10 / 0.46);
+}
+
+.roinamis-page .consent-copy.has-error { color: rgb(10 10 10 / 0.84); }
+
+.roinamis-page .consent-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.roinamis-page .consent-link:hover { color: #0a0a0a; }
+.roinamis-page .consent-link:focus-visible { outline: 1px solid #0a0a0a; outline-offset: 2px; }
+
+.roinamis-page .signup-button {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.22rem 0 0.38rem;
+  border: 0;
+  border-bottom: 1px solid #0a0a0a;
+  background: transparent;
+  color: #0a0a0a;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 0.55rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: gap 240ms cubic-bezier(0.23, 1, 0.32, 1), opacity 200ms ease-out;
+}
+
+.roinamis-page .signup-button:hover,
+.roinamis-page .signup-button:focus-visible { gap: 0.95rem; }
+.roinamis-page .signup-button:focus-visible { outline: 1px solid #0a0a0a; outline-offset: 4px; }
+.roinamis-page .signup-button:active { transform: translateY(1px); }
+
+.roinamis-page .button-mark {
+  position: relative;
+  width: 0.65rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.roinamis-page .button-mark::after {
+  position: absolute;
+  top: -0.18rem;
+  right: 0;
+  width: 0.37rem;
+  height: 0.37rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.roinamis-page .signup-button.loading .button-mark {
+  animation: current-run 700ms cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.roinamis-page .signup-button.success { border-color: transparent; }
+
+.roinamis-page .signup-button.success .button-mark {
+  width: 0.68rem;
+  height: 0.38rem;
+  background: transparent;
+  border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  transform: rotate(-45deg) translateY(-0.1rem);
+}
+
+.roinamis-page .signup-button.success .button-mark::after { display: none; }
+.roinamis-page .signup-button:disabled { cursor: default; }
+
+@keyframes current-run {
+  50% { transform: translateX(4px); opacity: 0.25; }
+}
+
+@media (min-width: 720px) {
+  .roinamis-page { padding: 2.5rem 3rem; }
+  .roinamis-page .page-meta,
+  .roinamis-page .page-footer { font-size: 0.6rem; }
+  .roinamis-page .mark-stage { top: 14.5%; right: -2%; left: 6%; }
+  .roinamis-page .logo-window { width: min(89vw, 96rem); }
+  .roinamis-page .signup-field { width: min(32rem, 36vw); margin: 0 0 3.15rem 7%; }
+  .roinamis-page .supporting-line { font-size: 0.9rem; }
+  .roinamis-page .signup-form { margin-top: 2.35rem; }
+  .roinamis-page .email-label input { height: 2.9rem; font-size: 0.84rem; }
+  .roinamis-page .consent-copy { max-width: 16rem; font-size: 0.54rem; }
+}
+
+@media (min-width: 1200px) {
+  .roinamis-page { padding: 2.65rem 3.5rem; }
+  .roinamis-page .mark-stage { left: 5%; }
+  .roinamis-page .signup-field { margin-left: 10%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roinamis-page *,
+  .roinamis-page *::before,
+  .roinamis-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .roinamis-page .logo-window { transform: none !important; }
+}
