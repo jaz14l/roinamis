@@ -33,8 +33,8 @@ const Email = () => (
         <Heading style={h1}>welcome in.</Heading>
 
         <Text style={text}>
-          Thanks for joining the list. roinamis is built around pieces made to last,
-          with attention to materials, proportion, and the details that hold up over time.
+          Thanks for joining the list. roinamis is a brand built to have lasting detail
+          and impact that hold up over time.
         </Text>
 
         <Text style={text}>
