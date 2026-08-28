@@ -421,6 +421,33 @@
   color: #0a0a0a;
 }
 
+.roinamis-page .buffer-heading {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.roinamis-page .buffer-dots {
+  display: inline-block;
+  min-width: 0.55em;
+  text-align: left;
+}
+
+.roinamis-page .buffer-line {
+  position: absolute;
+  bottom: -0.15em;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #0a0a0a;
+  transition: width 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.roinamis-page .buffer-heading.is-active .buffer-line,
+.roinamis-page .buffer-heading:hover .buffer-line {
+  width: 100%;
+}
+
 .roinamis-page .supporting-line {
   max-width: 16.5rem;
   margin: 0.8rem 0 0;
