@@ -69,7 +69,19 @@ const Signup = () => {
       <section className="signup-field" aria-labelledby="signup-heading">
         <div className="copy-block">
           <p className="eyebrow">Studio note</p>
-          <h1 id="signup-heading">loading...</h1>
+          <h1
+            id="signup-heading"
+            className={`buffer-heading ${hoverHeading ? "is-active" : ""}`}
+            onMouseEnter={() => setHoverHeading(true)}
+            onMouseLeave={() => setHoverHeading(false)}
+            aria-label="loading"
+          >
+            loading
+            <span className="buffer-dots" aria-hidden="true">
+              {".".repeat(bufferTick)}
+            </span>
+            <span className="buffer-line" aria-hidden="true" />
+          </h1>
         </div>
 
         <SignUpForm />
