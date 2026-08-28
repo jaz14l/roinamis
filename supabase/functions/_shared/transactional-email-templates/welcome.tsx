@@ -147,3 +147,12 @@ const footer = {
 const footerSign = {
   float: 'right' as const,
 }
+
+const noReply = {
+  margin: '24px 0 0',
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '9px',
+  letterSpacing: '0.05em',
+  textTransform: 'lowercase' as const,
+  color: 'rgba(10,10,10,0.42)',
+}
