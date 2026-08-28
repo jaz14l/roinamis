@@ -5,11 +5,15 @@ import {
   Head,
   Heading,
   Html,
+  Img,
+  Link,
   Preview,
   Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
+
+const LOGO_URL = 'https://roinamis.com/roinamis-wave-line.png'
 
 const Email = () => (
   <Html lang="en" dir="ltr">
@@ -28,6 +32,13 @@ const Email = () => (
 
         <Section style={ruleTop} />
 
+        <Img
+          src={LOGO_URL}
+          alt="roinamis wave logo"
+          width={560}
+          style={logoImg}
+        />
+
         <Text style={eyebrow}>studio note</Text>
 
         <Heading style={h1}>welcome in.</Heading>
@@ -38,9 +49,8 @@ const Email = () => (
         </Text>
 
         <Text style={text}>
-          We won't crowd your inbox. You'll hear from us now and then when
-          there's a new piece, a restock, or something worth knowing about
-          before it goes out.
+          We won't crowd your inbox. You'll hear from us when there's a new release,
+          a restock, or something worth knowing about before it goes out.
         </Text>
 
         <Text style={text}>That's it. Glad to have you here.</Text>
@@ -53,8 +63,24 @@ const Email = () => (
         </Text>
 
         <Text style={noReply}>
-          Please do not reply to this email. For questions, reach out to roinamis directly.
+          Please do not reply to this email. For questions, contact us at roinamis@gmail.com.
         </Text>
+
+        <Section style={socialRow}>
+          <Link
+            href="https://www.instagram.com/roinamis/?hl=en"
+            style={socialLink}
+          >
+            Instagram
+          </Link>
+          <span style={socialSeparator}>·</span>
+          <Link
+            href="https://www.tiktok.com/@roinamis"
+            style={socialLink}
+          >
+            TikTok
+          </Link>
+        </Section>
       </Container>
     </Body>
   </Html>
@@ -99,7 +125,14 @@ const metaRight = {
 
 const ruleTop = {
   borderTop: '1px solid rgba(10,10,10,0.85)',
-  margin: '26px 0 56px',
+  margin: '26px 0 40px',
+}
+
+const logoImg = {
+  display: 'block' as const,
+  margin: '0 auto 56px',
+  maxWidth: '100%',
+  height: 'auto',
 }
 
 const eyebrow = {
@@ -155,4 +188,25 @@ const noReply = {
   letterSpacing: '0.05em',
   textTransform: 'lowercase' as const,
   color: 'rgba(10,10,10,0.42)',
+}
+
+const socialRow = {
+  margin: '28px 0 0',
+  textAlign: 'center' as const,
+}
+
+const socialLink = {
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '10px',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase' as const,
+  color: 'rgba(10,10,10,0.7)',
+  textDecoration: 'none',
+}
+
+const socialSeparator = {
+  margin: '0 10px',
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '10px',
+  color: 'rgba(10,10,10,0.4)',
 }
