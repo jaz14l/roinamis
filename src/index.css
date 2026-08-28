@@ -494,7 +494,8 @@
   outline: 0;
   background: transparent;
   font-family: "DM Mono", monospace;
-  font-size: 0.76rem;
+  font-size: 16px;
+  line-height: 1.25;
   color: #0a0a0a;
 }
 
