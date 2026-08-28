@@ -494,7 +494,8 @@
   outline: 0;
   background: transparent;
   font-family: "DM Mono", monospace;
-  font-size: 0.76rem;
+  font-size: 16px;
+  line-height: 1.25;
   color: #0a0a0a;
 }
 
@@ -610,6 +611,30 @@
 .roinamis-page .signup-button.success .button-mark::after { display: none; }
 .roinamis-page .signup-button:disabled { cursor: default; }
 
+.roinamis-page .signup-success {
+  margin-top: 1.85rem;
+}
+
+.roinamis-page .signup-success h2 {
+  margin: 0;
+  font-family: "Archivo Black", Arial Black, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+}
+
+.roinamis-page .signup-success p {
+  margin: 0.8rem 0 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(10 10 10 / 0.54);
+}
+
 @keyframes current-run {
   50% { transform: translateX(4px); opacity: 0.25; }
 }
@@ -623,7 +648,8 @@
   .roinamis-page .signup-field { width: min(32rem, 36vw); margin: 0 0 3.15rem 7%; }
   .roinamis-page .supporting-line { font-size: 0.9rem; }
   .roinamis-page .signup-form { margin-top: 2.35rem; }
-  .roinamis-page .email-label input { height: 2.9rem; font-size: 0.84rem; }
+  .roinamis-page .signup-success { margin-top: 2.35rem; }
+  .roinamis-page .email-label input { height: 2.9rem; font-size: 16px; }
   .roinamis-page .consent-copy { max-width: 16rem; font-size: 0.54rem; }
 }
 
