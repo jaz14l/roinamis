@@ -62,7 +62,7 @@ const Signup = () => {
 
       <section className="mark-stage" aria-label="roinamis brand mark">
         <div className="logo-window">
-          <img className="logo-mark" src={waveMark} alt="roinamis wave logo" draggable={false} />
+          <img className="logo-mark" src={waveMark} alt="Roinamis wave logo, contemporary streetwear clothing brand" draggable={false} />
         </div>
       </section>
 
@@ -100,6 +100,7 @@ const Signup = () => {
       </section>
 
       <footer className="page-footer">
+        <span>Faith. Culture. Motion.</span>
         <span>
           founded 2022 · <span className="brand-name">roinamis</span>
         </span>
