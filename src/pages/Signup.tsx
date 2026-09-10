@@ -62,7 +62,7 @@ const Signup = () => {
 
       <section className="mark-stage" aria-label="roinamis brand mark">
         <div className="logo-window">
-          <img className="logo-mark" src={waveMark} alt="roinamis wave logo" draggable={false} />
+          <img className="logo-mark" src={waveMark} alt="Roinamis wave logo, contemporary streetwear clothing brand" draggable={false} />
         </div>
       </section>
 
@@ -74,20 +74,33 @@ const Signup = () => {
             className={`buffer-heading ${hoverHeading ? "is-active" : ""}`}
             onMouseEnter={() => setHoverHeading(true)}
             onMouseLeave={() => setHoverHeading(false)}
-            aria-label="loading"
+            aria-label="Roinamis, a contemporary streetwear clothing brand, coming soon. Loading."
           >
-            loading
-            <span className="buffer-dots" aria-hidden="true">
-              {".".repeat(bufferTick)}
+            <span className="sr-only">
+              Roinamis is a contemporary streetwear clothing brand, coming soon.
             </span>
-            <span className="buffer-line" aria-hidden="true" />
+            <span aria-hidden="true">
+              loading
+              <span className="buffer-dots">
+                {".".repeat(bufferTick)}
+              </span>
+              <span className="buffer-line" />
+            </span>
           </h1>
+          <p className="sr-only">
+            Roinamis creates clothing rooted in Faith, Culture, and Motion, for
+            young people interested in streetwear, fashion, culture, identity,
+            and movement. The brand is preparing for launch. Join the email
+            list for updates, launch announcements, and future product
+            releases.
+          </p>
         </div>
 
         <SignUpForm />
       </section>
 
       <footer className="page-footer">
+        <span>Faith. Culture. Motion.</span>
         <span>
           founded 2022 · <span className="brand-name">roinamis</span>
         </span>
