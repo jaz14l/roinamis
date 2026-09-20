@@ -8,6 +8,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [showPhone, setShowPhone] = useState(false);
+  const [smsOptIn, setSmsOptIn] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -22,12 +23,23 @@ const SignUpForm = () => {
       return;
     }
 
+    const trimmedPhone = phone.trim();
+    if (trimmedPhone && !smsOptIn) {
+      setError("Please agree to receive texts, or remove your phone number.");
+      return;
+    }
+
     setError(null);
     setIsSubmitting(true);
 
-    const { error: insertError } = await supabase
-      .from("email_signups")
-      .insert({ email, phone: phone || null });
+    const normalizedEmail = email.trim().toLowerCase();
+    const { error: insertError } = await supabase.from("email_signups").insert({
+      email: normalizedEmail,
+      phone: trimmedPhone || null,
+      email_opt_in: true,
+      sms_opt_in: Boolean(trimmedPhone) && smsOptIn,
+      source: "signup_page",
+    });
 
     setIsSubmitting(false);
 
