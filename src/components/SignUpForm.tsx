@@ -8,6 +8,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [showPhone, setShowPhone] = useState(false);
+  const [smsOptIn, setSmsOptIn] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -22,12 +23,23 @@ const SignUpForm = () => {
       return;
     }
 
+    const trimmedPhone = phone.trim();
+    if (trimmedPhone && !smsOptIn) {
+      setError("Please agree to receive texts, or remove your phone number.");
+      return;
+    }
+
     setError(null);
     setIsSubmitting(true);
 
-    const { error: insertError } = await supabase
-      .from("email_signups")
-      .insert({ email, phone: phone || null });
+    const normalizedEmail = email.trim().toLowerCase();
+    const { error: insertError } = await supabase.from("email_signups").insert({
+      email: normalizedEmail,
+      phone: trimmedPhone || null,
+      email_opt_in: true,
+      sms_opt_in: Boolean(trimmedPhone) && smsOptIn,
+      source: "signup_page",
+    });
 
     setIsSubmitting(false);
 
@@ -37,6 +49,8 @@ const SignUpForm = () => {
           title: "Already signed up",
           description: "This email is already on our list.",
         });
+        setIsSubmitted(true);
+        return;
       } else {
         toast({
           title: "Something went wrong",
@@ -48,9 +62,11 @@ const SignUpForm = () => {
     }
 
     // Fire-and-forget: branded welcome email + Zapier webhook
-    supabase.functions.invoke("send-welcome-email", { body: { email } }).catch(console.error);
     supabase.functions
-      .invoke("zapier-webhook", { body: { email, phone: phone || null } })
+      .invoke("send-welcome-email", { body: { email: normalizedEmail } })
+      .catch(console.error);
+    supabase.functions
+      .invoke("zapier-webhook", { body: { email: normalizedEmail, phone: trimmedPhone || null } })
       .catch(console.error);
 
     setIsSubmitted(true);
@@ -103,6 +119,26 @@ const SignUpForm = () => {
                   autoComplete="tel"
                   disabled={isSubmitting || isSubmitted}
                 />
+              </label>
+            )}
+
+            {showPhone && (
+              <label className="sms-consent" htmlFor="sms-opt-in">
+                <input
+                  id="sms-opt-in"
+                  name="sms-opt-in"
+                  type="checkbox"
+                  checked={smsOptIn}
+                  onChange={(e) => {
+                    setSmsOptIn(e.target.checked);
+                    if (error) setError(null);
+                  }}
+                  disabled={isSubmitting || isSubmitted}
+                />
+                <span>
+                  Text me roinamis updates at this number. Message and data rates may apply.
+                  Reply STOP to opt out.
+                </span>
               </label>
             )}
 
