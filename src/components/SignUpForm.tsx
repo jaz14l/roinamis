@@ -49,6 +49,8 @@ const SignUpForm = () => {
           title: "Already signed up",
           description: "This email is already on our list.",
         });
+        setIsSubmitted(true);
+        return;
       } else {
         toast({
           title: "Something went wrong",
@@ -60,9 +62,11 @@ const SignUpForm = () => {
     }
 
     // Fire-and-forget: branded welcome email + Zapier webhook
-    supabase.functions.invoke("send-welcome-email", { body: { email } }).catch(console.error);
     supabase.functions
-      .invoke("zapier-webhook", { body: { email, phone: phone || null } })
+      .invoke("send-welcome-email", { body: { email: normalizedEmail } })
+      .catch(console.error);
+    supabase.functions
+      .invoke("zapier-webhook", { body: { email: normalizedEmail, phone: trimmedPhone || null } })
       .catch(console.error);
 
     setIsSubmitted(true);
