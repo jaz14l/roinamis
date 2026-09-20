@@ -122,6 +122,26 @@ const SignUpForm = () => {
               </label>
             )}
 
+            {showPhone && (
+              <label className="sms-consent" htmlFor="sms-opt-in">
+                <input
+                  id="sms-opt-in"
+                  name="sms-opt-in"
+                  type="checkbox"
+                  checked={smsOptIn}
+                  onChange={(e) => {
+                    setSmsOptIn(e.target.checked);
+                    if (error) setError(null);
+                  }}
+                  disabled={isSubmitting || isSubmitted}
+                />
+                <span>
+                  Text me roinamis updates at this number. Message and data rates may apply.
+                  Reply STOP to opt out.
+                </span>
+              </label>
+            )}
+
             {!showPhone && !isSubmitted && (
               <button type="button" className="phone-toggle" onClick={() => setShowPhone(true)}>
                 Add phone for SMS
