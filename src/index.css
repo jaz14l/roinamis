@@ -540,6 +540,27 @@
 
 .roinamis-page .consent-copy.has-error { color: rgb(10 10 10 / 0.84); }
 
+.roinamis-page .sms-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 0.51rem;
+  line-height: 1.55;
+  letter-spacing: 0.025em;
+  color: rgb(10 10 10 / 0.52);
+}
+
+.roinamis-page .sms-consent input {
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-top: 0.12rem;
+  accent-color: #0a0a0a;
+  flex-shrink: 0;
+}
+
 .roinamis-page .consent-link {
   color: inherit;
   text-decoration: underline;
