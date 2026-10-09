@@ -42,10 +42,11 @@ Deno.serve(async (req) => {
     );
 
     // Only forward addresses that actually completed a signup.
+    // Exact match: emails are normalized on insert, and ilike would treat _ and % as wildcards.
     const { data: signup, error } = await supabase
       .from('email_signups')
       .select('id, email, phone')
-      .ilike('email', email)
+      .eq('email', email)
       .maybeSingle();
 
     if (error) {
@@ -57,7 +58,7 @@ Deno.serve(async (req) => {
       return json({ error: 'No signup found for this address' }, 404);
     }
 
-    await fetch(webhookUrl, {
+    const zapRes = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -66,6 +67,12 @@ Deno.serve(async (req) => {
         signed_up_at: new Date().toISOString(),
       }),
     });
+
+    if (!zapRes.ok) {
+      const detail = await zapRes.text().catch(() => '');
+      console.error(`Zapier responded ${zapRes.status}: ${detail.slice(0, 300)}`);
+      return json({ error: 'Zapier rejected the webhook', status: zapRes.status }, 502);
+    }
 
     return json({ success: true }, 200);
   } catch (error) {
