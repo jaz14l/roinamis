@@ -61,13 +61,24 @@ const SignUpForm = () => {
       return;
     }
 
-    // Fire-and-forget: branded welcome email + Zapier webhook
+    // Signup is saved. Follow-ups run in the background; invoke() returns errors
+    // instead of throwing, so check them explicitly and report failures.
     supabase.functions
       .invoke("send-welcome-email", { body: { email: normalizedEmail } })
-      .catch(console.error);
+      .then(({ error: fnError }) => {
+        if (fnError) {
+          console.error("[signup] welcome email failed:", fnError.message);
+          toast({
+            title: "You're signed up",
+            description: "Your welcome email couldn't be sent right now.",
+          });
+        }
+      });
     supabase.functions
       .invoke("zapier-webhook", { body: { email: normalizedEmail, phone: trimmedPhone || null } })
-      .catch(console.error);
+      .then(({ error: fnError }) => {
+        if (fnError) console.error("[signup] zapier webhook failed:", fnError.message);
+      });
 
     setIsSubmitted(true);
   };
