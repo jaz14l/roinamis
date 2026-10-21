@@ -22,7 +22,7 @@ const Email = () => (
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap');
       `}</style>
     </Head>
-    <Preview>you're on the roinamis list.</Preview>
+    <Preview>welcome to roinamis.</Preview>
     <Body style={main}>
       <Container style={container}>
         <Text style={metaRow}>
@@ -39,26 +39,30 @@ const Email = () => (
           style={logoImg}
         />
 
-        <Text style={eyebrow}>studio note</Text>
+        <Heading style={h1}>you're in.</Heading>
 
-        <Heading style={h1}>welcome in.</Heading>
+        <Text style={lead}>welcome to roinamis.</Text>
+
+        <Text style={quote}>“i am more than they see.”</Text>
 
         <Text style={text}>
-          Thanks for joining the list. roinamis is a brand built to have lasting detail
-          and impact that hold up over time.
+          you might know that feeling. being known for one thing when there's a
+          lot more to you. that's what started roinamis, and it's what we keep
+          coming back to as we make each piece.
         </Text>
 
         <Text style={text}>
-          We won't crowd your inbox. You'll hear from us when there's a new release,
-          a restock, or something worth knowing about before it goes out.
+          thanks for signing up. we'll share what's taking shape and let you
+          know when the first release is ready.
         </Text>
 
-        <Text style={text}>That's it. Glad to have you here.</Text>
+        <Text style={signoff}>roinamis</Text>
+        <Text style={signoffLast}>wear the story.</Text>
 
         <Section style={rule} />
 
         <Text style={footer}>
-          <span>founded 2022 · roinamis</span>
+          <span>roinamis</span>
           <span style={footerSign}>wear the story</span>
         </Text>
 
@@ -88,7 +92,7 @@ const Email = () => (
 
 export const template = {
   component: Email,
-  subject: 'Welcome to roinamis',
+  subject: "you're in.",
   displayName: 'Welcome email',
   previewData: {},
 } satisfies TemplateEntry
@@ -135,13 +139,39 @@ const logoImg = {
   height: 'auto',
 }
 
-const eyebrow = {
-  margin: '0 0 14px',
+const lead = {
+  margin: '0 0 22px',
   fontFamily: "'DM Mono', 'Courier New', monospace",
-  fontSize: '10px',
-  letterSpacing: '0.15em',
-  textTransform: 'uppercase' as const,
-  color: 'rgba(10,10,10,0.54)',
+  fontSize: '11px',
+  letterSpacing: '0.14em',
+  textTransform: 'lowercase' as const,
+  color: 'rgba(10,10,10,0.6)',
+}
+
+const quote = {
+  margin: '0 0 24px',
+  fontSize: '16px',
+  lineHeight: '1.6',
+  fontWeight: 500 as const,
+  color: '#0a0a0a',
+}
+
+const signoff = {
+  margin: '0 0 6px',
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '11px',
+  letterSpacing: '0.14em',
+  textTransform: 'lowercase' as const,
+  color: 'rgba(10,10,10,0.8)',
+}
+
+const signoffLast = {
+  margin: '0',
+  fontFamily: "'DM Mono', 'Courier New', monospace",
+  fontSize: '11px',
+  letterSpacing: '0.14em',
+  textTransform: 'lowercase' as const,
+  color: 'rgba(10,10,10,0.8)',
 }
 
 const h1 = {
