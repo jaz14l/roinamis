@@ -4,4 +4,4 @@
 - [x] Add product browsing and preview detail pages using available brand imagery.
 - [x] Include the approved philosophy and wave meaning.
 - [x] Verify navigation, root signup preservation, and desktop/mobile rendering.
-- [ ] Match storefront typography to navigation and standardize product images and two solid background tones.
+- [x] Match storefront typography to navigation and standardize product images and two solid background tones.
