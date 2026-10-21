@@ -5,4 +5,4 @@
 - [x] Include the approved philosophy and wave meaning.
 - [x] Verify navigation, root signup preservation, and desktop/mobile rendering.
 - [x] Match storefront typography to navigation and standardize product images and two solid background tones.
-- [ ] Add the uploaded jackets and jeans with jacket detail photos and verify collection browsing.
+- [x] Add the uploaded jackets and jeans with jacket detail photos and verify collection browsing.
