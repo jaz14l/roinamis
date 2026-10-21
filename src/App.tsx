@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Privacy from "./pages/Privacy";
+import PreviewShell from "./components/preview/PreviewShell";
+import PreviewShop from "./pages/PreviewShop";
+import PreviewProduct from "./pages/PreviewProduct";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +19,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/preview-shop" element={<PreviewShell />}>
+            <Route index element={<PreviewShop />} />
+            <Route path="product/:id" element={<PreviewProduct />} />
+          </Route>
           <Route path="*" element={<Signup />} />
         </Routes>
       </BrowserRouter>
