@@ -15,13 +15,12 @@ export default function PreviewShop() {
 
   return (
     <main>
-      <section className="store-image relative h-[520px] overflow-hidden md:h-[570px]" aria-label="roinamis collection">
-        <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
-          <img src={previewProducts[0].image} alt="Washed olive wave-panel utility jacket" className="h-full w-full object-cover" fetchPriority="high" />
-          <img src={previewProducts[1].image} alt="Cream-to-espresso wave knit" className="hidden h-full w-full object-cover md:block" />
+      <section className="store-image" aria-label="roinamis collection">
+        <div className="grid h-[380px] grid-cols-1 md:h-[440px] md:grid-cols-2">
+          <img src={previewProducts[0].image} alt="Washed olive wave-panel utility jacket" className="store-product-image h-full min-h-0 w-full" fetchPriority="high" />
+          <img src={previewProducts[1].image} alt="Cream-to-espresso wave knit" className="store-product-image hidden h-full min-h-0 w-full md:block" />
         </div>
-        <div className="store-scrim absolute inset-0" />
-        <div className="store-hero-copy absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-6 pb-10 md:px-12 md:pb-12">
+        <div className="store-hero-copy flex items-end justify-between gap-6 px-6 py-8 md:px-12">
           <div><p className="store-label mb-4">The first collection</p><h1 className="text-5xl leading-none md:text-7xl">roinamis</h1><p className="mt-4 text-sm">wear the story.</p></div>
           <Button asChild variant="ghost" className="store-hero-link h-auto rounded-none border-b p-0 pb-2 text-xs hover:bg-transparent"><a href="#collection">Explore <ArrowDownRight /></a></Button>
         </div>

@@ -63,7 +63,7 @@ export default function PreviewShell() {
           <DialogTitle>Search collection</DialogTitle><DialogDescription className="sr-only">Find a piece by name or colour.</DialogDescription>
           <input type="search" autoFocus value={query} onChange={event => setQuery(event.target.value)} aria-label="Search pieces" placeholder="Search pieces" className="w-full border-b border-border bg-background py-3 text-base outline-none focus:border-foreground" />
           <div className="max-h-[55svh] overflow-y-auto">
-            {filterPreviewProducts("all", query).map(product => <Link key={product.id} to={`/preview-shop/product/${product.id}`} onClick={() => setSearchOpen(false)} className="flex items-center gap-4 border-b border-border py-4"><img src={product.image} alt="" className="h-20 w-16 object-contain" /><div><p className="text-sm">{product.name}</p><p className="mt-1 text-xs text-muted-foreground">{product.color}</p></div><ArrowUpRight className="ml-auto" size={16} /></Link>)}
+            {filterPreviewProducts("all", query).map(product => <Link key={product.id} to={`/preview-shop/product/${product.id}`} onClick={() => setSearchOpen(false)} className="flex items-center gap-4 border-b border-border py-4"><img src={product.image} alt="" className="store-product-image h-20 w-16" /><div><p className="text-sm">{product.name}</p><p className="mt-1 text-xs text-muted-foreground">{product.color}</p></div><ArrowUpRight className="ml-auto" size={16} /></Link>)}
             {filterPreviewProducts("all", query).length === 0 && <p className="py-8 text-sm text-muted-foreground">No pieces found.</p>}
           </div>
         </DialogContent>
