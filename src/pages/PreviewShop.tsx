@@ -5,7 +5,7 @@ import { filterPreviewProducts, previewProducts } from "@/data/preview-products"
 import ProductTile from "@/components/preview/ProductTile";
 import Philosophy from "@/components/preview/Philosophy";
 
-const filters = [{ id: "all", label: "All pieces" }, { id: "outerwear", label: "Outerwear" }, { id: "tops", label: "Tops" }, { id: "sets", label: "Sets" }];
+const filters = [{ id: "all", label: "All pieces" }, { id: "outerwear", label: "Outerwear" }, { id: "tops", label: "Tops" }, { id: "bottoms", label: "Bottoms" }, { id: "sets", label: "Sets" }];
 
 export default function PreviewShop() {
   const [params, setParams] = useSearchParams();

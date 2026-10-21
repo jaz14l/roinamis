@@ -24,6 +24,7 @@ export default function PreviewShell() {
     { label: "Collection", to: "/preview-shop#collection" },
     { label: "Outerwear", to: "/preview-shop?category=outerwear#collection" },
     { label: "Tops", to: "/preview-shop?category=tops#collection" },
+    { label: "Bottoms", to: "/preview-shop?category=bottoms#collection" },
     { label: "Philosophy", to: "/preview-shop#philosophy" },
   ];
 
