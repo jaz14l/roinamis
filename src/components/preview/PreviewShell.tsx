@@ -30,7 +30,7 @@ export default function PreviewShell() {
   return (
     <div className="preview-store min-h-screen">
       <header className="sticky top-0 z-30 bg-background">
-        <div className="bg-primary px-4 py-2 text-center text-primary-foreground"><p className="store-label">roinamis. wear the story.</p></div>
+        <div className="bg-primary px-4 py-2 text-center text-primary-foreground"><p className="store-label normal-case">roinamis. wear the story.</p></div>
         <div className="relative flex h-20 items-center justify-between border-b border-border px-5 md:h-24 md:px-12">
           <div className="flex w-20 items-center gap-1 md:w-32">
             <Button variant="ghost" size="icon" aria-label={menu ? "Close menu" : "Open menu"} title="Menu" onClick={() => setMenu(!menu)} className="md:hidden">{menu ? <X /> : <Menu />}</Button>

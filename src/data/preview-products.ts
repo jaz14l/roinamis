@@ -1,5 +1,5 @@
 import charcoal from "@/assets/preview/charcoal-wave-set.jpeg.asset.json";
-import green from "@/assets/preview/green-wave-top.jpg.asset.json";
+import green from "@/assets/preview/green-wave-top-complete.jpg.asset.json";
 import utility from "@/assets/preview/utility-wave-jacket.jpeg.asset.json";
 import knit from "@/assets/preview/ombre-wave-knit.jpeg.asset.json";
 
