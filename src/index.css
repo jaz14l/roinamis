@@ -39,7 +39,6 @@
     --store-surface: 40 20% 98%;
     --store-ink: 0 0% 8%;
     --store-hero-ink: 40 20% 98%;
-    --store-scrim: linear-gradient(180deg, transparent 35%, hsl(0 0% 0% / 0.65));
 
     --radius: 0.125rem;
 
@@ -254,12 +253,12 @@
   --border: 0 0% 82%;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: "DM Mono", monospace;
   font-weight: 400;
   letter-spacing: 0;
 }
 .preview-store h1, .preview-store h2, .preview-store h3, .preview-store .store-title {
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: "DM Mono", monospace;
   letter-spacing: 0;
   font-weight: 400;
 }
@@ -269,14 +268,13 @@
   text-transform: uppercase;
   letter-spacing: 0;
 }
-.preview-store .store-wordmark { font-family: "Archivo Black", Arial, sans-serif; }
+.preview-store .store-wordmark { font-family: "DM Mono", monospace; }
+.preview-store input, .preview-store button, .preview-store summary { font-family: inherit; }
 .preview-store .store-label.normal-case { text-transform: none; }
 .preview-store .store-image { background: hsl(var(--store-image)); }
-.preview-store .store-hero-copy { color: hsl(var(--store-hero-ink)); }
-.preview-store .store-scrim { background: var(--store-scrim); }
+.preview-store .store-hero-copy { color: hsl(var(--foreground)); background: hsl(var(--background)); }
 .preview-store .store-hero-link { border-color: currentColor; color: inherit; }
-.preview-store .store-product-image { transition: transform 600ms ease; }
-.preview-store .group:hover .store-product-image { transform: scale(1.025); }
+.preview-store .store-product-image { object-fit: contain; object-position: center; background: hsl(var(--store-image)); }
 @media (prefers-reduced-motion: reduce) {
   .preview-store *, .preview-store *::before, .preview-store *::after { scroll-behavior: auto; transition: none; animation: none; }
 }
