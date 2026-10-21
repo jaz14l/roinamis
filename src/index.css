@@ -35,6 +35,12 @@
     --input: 40 20% 100%;
     --ring: 0 0% 20%;
 
+    --store-image: 0 0% 93%;
+    --store-surface: 40 20% 98%;
+    --store-ink: 0 0% 8%;
+    --store-hero-ink: 40 20% 98%;
+    --store-scrim: linear-gradient(180deg, transparent 35%, hsl(0 0% 0% / 0.65));
+
     --radius: 0.125rem;
 
     /* Custom brand tokens */
@@ -236,6 +242,43 @@
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Staged storefront, independent of the production signup design. */
+.preview-store {
+  --background: var(--store-surface);
+  --foreground: var(--store-ink);
+  --primary: var(--store-ink);
+  --primary-foreground: var(--store-surface);
+  --muted-foreground: 0 0% 40%;
+  --border: 0 0% 82%;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "DM Sans", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.preview-store h1, .preview-store h2, .preview-store h3, .preview-store .store-title {
+  font-family: "DM Sans", Arial, sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.preview-store .store-label {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+.preview-store .store-wordmark { font-family: "Archivo Black", Arial, sans-serif; }
+.preview-store .store-label.normal-case { text-transform: none; }
+.preview-store .store-image { background: hsl(var(--store-image)); }
+.preview-store .store-hero-copy { color: hsl(var(--store-hero-ink)); }
+.preview-store .store-scrim { background: var(--store-scrim); }
+.preview-store .store-hero-link { border-color: currentColor; color: inherit; }
+.preview-store .store-product-image { transition: transform 600ms ease; }
+.preview-store .group:hover .store-product-image { transform: scale(1.025); }
+@media (prefers-reduced-motion: reduce) {
+  .preview-store *, .preview-store *::before, .preview-store *::after { scroll-behavior: auto; transition: none; animation: none; }
 }
 
 @keyframes grain {
