@@ -270,6 +270,7 @@
   letter-spacing: 0;
 }
 .preview-store .store-wordmark { font-family: "Archivo Black", Arial, sans-serif; }
+.preview-store .store-label.normal-case { text-transform: none; }
 .preview-store .store-image { background: hsl(var(--store-image)); }
 .preview-store .store-hero-copy { color: hsl(var(--store-hero-ink)); }
 .preview-store .store-scrim { background: var(--store-scrim); }
