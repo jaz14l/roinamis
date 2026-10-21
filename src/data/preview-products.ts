@@ -2,14 +2,23 @@ import charcoal from "@/assets/preview/charcoal-wave-set.jpeg.asset.json";
 import green from "@/assets/preview/green-wave-top-complete.jpg.asset.json";
 import utility from "@/assets/preview/utility-wave-jacket.jpeg.asset.json";
 import knit from "@/assets/preview/ombre-wave-knit.jpeg.asset.json";
+import navyJacket from "@/assets/preview/navy-wave-jacket.jpeg.asset.json";
+import navyDetail from "@/assets/preview/navy-wave-jacket-detail.jpeg.asset.json";
+import burgundyJacket from "@/assets/preview/burgundy-wave-jacket.jpeg.asset.json";
+import burgundyDetail from "@/assets/preview/burgundy-wave-jacket-detail.jpeg.asset.json";
+import burgundyCollar from "@/assets/preview/burgundy-wave-jacket-collar.jpeg.asset.json";
+import burgundyZip from "@/assets/preview/burgundy-wave-jacket-zip.jpeg.asset.json";
+import contourJeans from "@/assets/preview/charcoal-contour-jeans.jpeg.asset.json";
+import waveJeans from "@/assets/preview/charcoal-wave-jeans.jpeg.asset.json";
 
-export type PreviewCategory = "tops" | "outerwear" | "sets";
+export type PreviewCategory = "tops" | "outerwear" | "sets" | "bottoms";
 export interface PreviewProduct {
   id: string;
   name: string;
   category: PreviewCategory;
   color: string;
   image: string;
+  gallery?: { image: string; alt: string }[];
   description: string;
   details: string[];
   pieces: ("top" | "pants")[];
@@ -40,6 +49,36 @@ export const previewProducts: PreviewProduct[] = [
     image: green.url, pieces: ["top"],
     description: "A crewneck moving from sage into forest green. A diagonal wave seam crosses the front, with the wave mark at the chest.",
     details: ["Sage-to-forest colour transition", "Diagonal wave panelling", "Ribbed neckline, cuffs and hem", "Chest wave mark"],
+  },
+  {
+    id: "navy-wave-jacket", name: "Navy Wave Jacket", category: "outerwear", color: "Navy",
+    image: navyJacket.url, pieces: ["top"],
+    gallery: [{ image: navyDetail.url, alt: "Navy jacket sleeve with wave panels and phrase patch" }],
+    description: "A navy zip jacket with curved wave panels across the body and sleeves. Shoulder straps, metal hardware and a chest wave mark finish the design.",
+    details: ["Curved wave panelling", "Pointed collar and front zip", "Shoulder straps with metal rings", "‘i am more than they see’ patch"],
+  },
+  {
+    id: "burgundy-wave-jacket", name: "Burgundy Wave Jacket", category: "outerwear", color: "Burgundy",
+    image: burgundyJacket.url, pieces: ["top"],
+    gallery: [
+      { image: burgundyDetail.url, alt: "Burgundy jacket sleeve with wave panels and phrase patch" },
+      { image: burgundyCollar.url, alt: "Burgundy jacket collar and tonal wave label" },
+      { image: burgundyZip.url, alt: "Burgundy jacket curved zip pocket and stitching" },
+    ],
+    description: "A burgundy zip jacket with layered wave panels and a textured finish. An elasticated hem and cuffs frame the silhouette.",
+    details: ["Layered wave panelling", "Pointed collar and front zip", "Elasticated hem and cuffs", "Tonal wave label", "Curved zip pocket"],
+  },
+  {
+    id: "charcoal-contour-jeans", name: "Charcoal Contour Jeans", category: "bottoms", color: "Washed charcoal",
+    image: contourJeans.url, pieces: ["pants"],
+    description: "Washed charcoal jeans with curved contour seams across the front and back. The design pairs a straight-leg shape with familiar five-pocket detailing.",
+    details: ["Curved contour seamlines", "Straight-leg silhouette", "Five-pocket design", "Front and back views shown"],
+  },
+  {
+    id: "charcoal-wave-jeans", name: "Charcoal Wave Jeans", category: "bottoms", color: "Washed charcoal",
+    image: waveJeans.url, pieces: ["pants"],
+    description: "Washed charcoal jeans with long wave panels running down both legs. Curved seams carry the design from the front to the back.",
+    details: ["Full-length wave panelling", "Five-pocket design", "Washed charcoal finish", "Front and back views shown"],
   },
 ];
 

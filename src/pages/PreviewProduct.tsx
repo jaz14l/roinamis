@@ -12,7 +12,10 @@ export default function PreviewProduct() {
     <main className="mx-auto max-w-[1536px] px-5 pb-20 pt-8 md:px-12 md:pt-10">
       <Link to="/preview-shop#collection" className="store-label mb-8 inline-flex items-center gap-2"><ArrowLeft size={14} /> Collection / {product.name}</Link>
       <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:gap-20">
-        <div className="store-image aspect-[4/5] overflow-hidden"><img src={product.image} alt={product.name} className="store-product-image h-full w-full" /></div>
+        <div className="space-y-5">
+          <div className="store-image aspect-[4/5] overflow-hidden"><img src={product.image} alt={product.name} className="store-product-image h-full w-full" /></div>
+          {product.gallery && <div className="grid grid-cols-2 gap-5">{product.gallery.map(photo => <div key={photo.image} className="store-image aspect-[4/5] overflow-hidden"><img src={photo.image} alt={photo.alt} loading="lazy" className="store-product-image h-full w-full" /></div>)}</div>}
+        </div>
         <div className="self-center py-6 md:max-w-md">
           <p className="store-label mb-5 text-muted-foreground">Collection 01</p><h1 className="text-3xl leading-tight md:text-4xl">{product.name}</h1><p className="mt-4 text-sm text-muted-foreground">{product.color}</p>
           <p className="mt-9 text-base leading-relaxed">{product.description}</p>
