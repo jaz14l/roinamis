@@ -6,3 +6,4 @@
 - [x] Verify navigation, root signup preservation, and desktop/mobile rendering.
 - [x] Match storefront typography to navigation and standardize product images and two solid background tones.
 - [x] Add the uploaded jackets and jeans with jacket detail photos and verify collection browsing.
+- [ ] Give product photos clean backgrounds, combine Wave Jacket colours, remove Contour Jeans, and verify signup remains unchanged.
