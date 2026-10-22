@@ -245,6 +245,7 @@
 
 /* Staged storefront, independent of the production signup design. */
 .preview-store {
+  --store-image: 0 0% 100%;
   --background: var(--store-surface);
   --foreground: var(--store-ink);
   --primary: var(--store-ink);
@@ -274,7 +275,7 @@
 .preview-store .store-image { background: hsl(var(--store-image)); }
 .preview-store .store-hero-copy { color: hsl(var(--foreground)); background: hsl(var(--background)); }
 .preview-store .store-hero-link { border-color: currentColor; color: inherit; }
-.preview-store .store-product-image { object-fit: contain; object-position: center; background: hsl(var(--store-image)); }
+.preview-store .store-product-image { object-fit: contain; object-position: center; background: hsl(var(--store-image)); padding: 4%; }
 @media (prefers-reduced-motion: reduce) {
   .preview-store *, .preview-store *::before, .preview-store *::after { scroll-behavior: auto; transition: none; animation: none; }
 }
