@@ -39,7 +39,7 @@ export const previewProducts: PreviewProduct[] = [
     id: "utility-wave-jacket", name: "Utility Wave Jacket", category: "outerwear", color: "Washed olive",
     image: utility, pieces: ["top"],
     description: "Curved panels follow the wave across a collared zip jacket. A washed olive finish is paired with metal hardware and asymmetrical pockets.",
-    details: ["Wave-shaped panelling", "Flap chest pocket with wave mark", "Angled zip pocket", "D-ring detailing"],
+    details: ["Wave-shaped panelling", "Flap chest pocket", "Angled zip pocket", "D-ring detailing"],
   },
   {
     id: "ombre-wave-knit", name: "Ombré Wave Knit", category: "outerwear", color: "Cream / espresso",
@@ -57,7 +57,7 @@ export const previewProducts: PreviewProduct[] = [
     id: "green-wave-crewneck", name: "Green Wave Crewneck", category: "tops", color: "Sage / forest",
     image: green, pieces: ["top"],
     description: "A crewneck moving from sage into forest green. A diagonal wave seam crosses the front, with the wave mark at the chest.",
-    details: ["Sage-to-forest colour transition", "Diagonal wave panelling", "Ribbed neckline, cuffs and hem", "Chest wave mark"],
+    details: ["Sage-to-forest colour transition", "Diagonal wave panelling", "Ribbed neckline, cuffs and hem"],
   },
   {
     id: "wave-jacket", name: "Wave Jacket", category: "outerwear", color: "Navy / Burgundy",
@@ -68,7 +68,7 @@ export const previewProducts: PreviewProduct[] = [
       {
         id: "navy", color: "Navy", image: navyJacket,
         gallery: [{ image: navyDetail, alt: "Navy jacket sleeve with wave panels and phrase patch" }],
-        description: "A navy zip jacket with curved wave panels across the body and sleeves. Shoulder straps, metal hardware and a chest wave mark finish the design.",
+        description: "A navy zip jacket with curved wave panels across the body and sleeves. Shoulder straps and metal hardware finish the design.",
         details: ["Curved wave panelling", "Pointed collar and front zip", "Shoulder straps with metal rings", "‘i am more than they see’ patch"],
       },
       {
@@ -79,7 +79,7 @@ export const previewProducts: PreviewProduct[] = [
           { image: burgundyZip, alt: "Burgundy jacket curved zip pocket and stitching" },
         ],
         description: "A burgundy zip jacket with layered wave panels and a textured finish. An elasticated hem and cuffs frame the silhouette.",
-        details: ["Layered wave panelling", "Pointed collar and front zip", "Elasticated hem and cuffs", "Tonal wave label", "Curved zip pocket"],
+        details: ["Layered wave panelling", "Pointed collar and front zip", "Elasticated hem and cuffs", "Tonal leather label", "Curved zip pocket"],
       },
     ],
   },
