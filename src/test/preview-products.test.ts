@@ -27,4 +27,14 @@ describe("preview collection", () => {
     expect(filterPreviewProducts("bottoms").map(product => product.id)).toEqual(["charcoal-wave-jeans"]);
     expect(filterPreviewProducts("bottoms").every(product => product.pieces.length === 1 && product.pieces[0] === "pants")).toBe(true);
   });
+  it("gives the utility jacket the leather design with three detail photos", () => {
+    const utility = previewProducts.find(product => product.id === "utility-wave-jacket");
+    expect(utility?.description).toContain("leather-look");
+    expect(utility?.details).toContain("Leather-look washed olive finish");
+    expect(utility?.gallery).toHaveLength(3);
+    expect(utility?.gallery?.map(photo => photo.alt)).toEqual(expect.arrayContaining([
+      expect.stringContaining("back"),
+      expect.stringContaining("stand collar"),
+    ]));
+  });
 });
