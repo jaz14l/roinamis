@@ -1,6 +1,9 @@
 import charcoal from "@/assets/preview/charcoal-wave-set-white.jpg";
 import green from "@/assets/preview/green-wave-top-white.jpg";
 import utility from "@/assets/preview/utility-wave-jacket-white.jpg";
+import utilityOpen from "@/assets/preview/utility-wave-jacket-open-white.jpg";
+import utilityBack from "@/assets/preview/utility-wave-jacket-back-white.jpg";
+import utilityCollar from "@/assets/preview/utility-wave-jacket-collar-white.jpg";
 import knit from "@/assets/preview/ombre-wave-knit-white.jpg";
 import navyJacket from "@/assets/preview/navy-wave-jacket-white.jpg";
 import navyDetail from "@/assets/preview/navy-wave-jacket-detail-white.jpg";
@@ -38,8 +41,13 @@ export const previewProducts: PreviewProduct[] = [
   {
     id: "utility-wave-jacket", name: "Utility Wave Jacket", category: "outerwear", color: "Washed olive",
     image: utility, pieces: ["top"],
-    description: "Curved panels follow the wave across a collared zip jacket. A washed olive finish is paired with metal hardware and asymmetrical pockets.",
-    details: ["Wave-shaped panelling", "Flap chest pocket", "Angled zip pocket", "D-ring detailing"],
+    gallery: [
+      { image: utilityOpen, alt: "Utility jacket worn open, showing wave-shaped cutouts over a sheer underlayer" },
+      { image: utilityBack, alt: "Utility jacket back with curved wave panel cutouts" },
+      { image: utilityCollar, alt: "Utility jacket stand collar with snap placket and centre zip" },
+    ],
+    description: "A leather-look jacket in washed olive. Wave-shaped panels open into sheer cutouts across the body and sleeves, over a full-length zip and snap-closed stand collar.",
+    details: ["Leather-look washed olive finish", "Wave-shaped panel cutouts", "Stand collar with snap placket", "Flap chest pocket with D-ring strap", "Angled zip pocket", "Adjustable cuff straps"],
   },
   {
     id: "ombre-wave-knit", name: "Ombré Wave Knit", category: "outerwear", color: "Cream / espresso",
