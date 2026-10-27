@@ -184,7 +184,7 @@ const SignUpForm = () => {
                 disabled={isSubmitting || isSubmitted}
               >
                 <span className="button-copy" aria-live="polite">
-                  {isSubmitting ? "Sending" : isSubmitted ? "You're on the list" : "Receive the note"}
+                  {isSubmitting ? "Sending" : isSubmitted ? "You're on the list" : "SUBMIT"}
                 </span>
                 <span className="button-mark" aria-hidden="true" />
               </button>

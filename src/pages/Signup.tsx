@@ -68,7 +68,7 @@ const Signup = () => {
 
       <section className="signup-field" aria-labelledby="signup-heading">
         <div className="copy-block">
-          <p className="eyebrow">Studio note</p>
+          <p className="eyebrow"></p>
           <h1
             id="signup-heading"
             className={`buffer-heading ${hoverHeading ? "is-active" : ""}`}
@@ -100,9 +100,9 @@ const Signup = () => {
       </section>
 
       <footer className="page-footer">
-        <span>Faith. Culture. Motion.</span>
+        <span></span>
         <span>
-          founded 2022 · <span className="brand-name">roinamis</span>
+          2022 · <span className="brand-name">roinamis</span>
         </span>
         <div className="social-links" aria-label="roinamis social links">
           <a
